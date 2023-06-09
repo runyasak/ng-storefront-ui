@@ -1,13 +1,27 @@
 {
   "name": "@ng-storefront-ui/lib",
   "version": "0.0.0",
-  "main": "./dist/esm2020/index.mjs",
-  "module": "./dist/esm2020/index.mjs",
-  "types": "./dist/index.d.ts",
+  "main": "./esm2022/index.mjs",
+  "module": "./esm2022/index.mjs",
+  "types": "./index.d.ts",
   "scripts": {
     "build:lib": "ng build ng-storefront-ui"
   },
   "files": [
     "dist"
-  ]
+  ],
+  "dependencies": {
+    "@angular/animations": "^16.0.0",
+    "@angular/common": "^16.0.0",
+    "@angular/compiler": "^16.0.0",
+    "@angular/core": "^16.0.0",
+    "@angular/forms": "^16.0.0",
+    "@angular/platform-browser": "^16.0.0",
+    "@angular/platform-browser-dynamic": "^16.0.0",
+    "@angular/router": "^16.0.0",
+    "@mertasan/tailwindcss-variables": "^2.6.1",
+    "rxjs": "~7.8.0",
+    "tslib": "^2.3.0",
+    "zone.js": "~0.13.0"
+  }
 }
