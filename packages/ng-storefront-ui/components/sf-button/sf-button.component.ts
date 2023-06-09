@@ -9,9 +9,9 @@ import { SfButtonVariant, SfButtonSize } from "./sf-button.type";
   imports: [CommonModule],
 })
 export class SfButtonComponent {
-  @Input() variant: SfButtonVariant = SfButtonVariant.primary;
+  @Input() variant: keyof typeof SfButtonVariant = SfButtonVariant.primary;
 
-  @Input() size: SfButtonSize = SfButtonSize.base;
+  @Input() size: keyof typeof SfButtonSize = SfButtonSize.base;
 
   @Input() disabled = false;
 

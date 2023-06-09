@@ -15,7 +15,7 @@ import { SfListItemSize } from "./sf-list-item.type";
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SfListItemComponent {
-  @Input() size: SfListItemSize = SfListItemSize.base;
+  @Input() size: keyof typeof SfListItemSize = SfListItemSize.base;
 
   @Input() disabled = false;
 
