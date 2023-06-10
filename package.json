@@ -1,13 +1,19 @@
 {
   "name": "@ng-storefront-ui/monorepo",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "A frontend library for Angular that helps developers quickly build fast, accessible, and beautiful storefronts.",
   "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/runyasak/ng-storefront-ui",
+    "directory": "packages/ng-storefront-ui"
+  },
   "scripts": {
     "build": "turbo run build",
     "build:lib": "turbo run build:lib",
     "serve": "turbo run serve",
-    "postbuild:lib": "cp -f README.md dist/README.md && cp LICENSE dist/LICENSE && cd dist/ && npm pack"
+    "postbuild:lib": "cp -f README.md dist/README.md && cp LICENSE dist/LICENSE && cd dist/ && npm pack",
+    "release": "standard-version"
   },
   "keywords": [],
   "author": "Runyasak Chaengnaimuang <runyasak.c@gmail.com>",
@@ -27,6 +33,7 @@
     "@angular/platform-browser-dynamic": "^16.0.0",
     "@angular/router": "^16.0.0",
     "rxjs": "~7.8.0",
+    "standard-version": "^9.5.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.13.0"
   },
