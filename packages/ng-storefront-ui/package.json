@@ -1,9 +1,6 @@
 {
   "name": "ng-storefront-ui",
-  "version": "0.0.1",
-  "main": "./esm2022/index.mjs",
-  "module": "./esm2022/index.mjs",
-  "types": "./index.d.ts",
+  "version": "0.0.2",
   "description": "A frontend library for Angular that helps developers quickly build fast, accessible, and beautiful storefronts.",
   "license": "MIT",
   "scripts": {
