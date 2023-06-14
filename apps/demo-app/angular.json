@@ -7,7 +7,11 @@
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
-          "style": "scss"
+          "standalone": true,
+          "changeDetection": "OnPush",
+          "inlineStyle": true,
+          "style": "scss",
+          "skipTests": true
         }
       },
       "root": "",
@@ -29,9 +33,13 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.css",
+              "src/storefront-ui-example.scss"
             ],
-            "scripts": []
+            "scripts": [],
+            "allowedCommonJsDependencies": [
+              "@mertasan/tailwindcss-variables"
+            ]
           },
           "configurations": {
             "production": {
