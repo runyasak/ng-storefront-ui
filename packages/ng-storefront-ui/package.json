@@ -10,6 +10,7 @@
   },
   "scripts": {
     "build:lib": "ng build ng-storefront-ui",
+    "test:lib": "ng test",
     "gc": "ng generate component"
   },
   "dependencies": {
@@ -25,5 +26,8 @@
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.13.0"
+  },
+  "devDependencies": {
+    "karma-spec-reporter": "^0.0.36"
   }
 }
