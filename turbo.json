@@ -3,11 +3,7 @@
   "pipeline": {
     "lint": {},
     "serve": {
-      "cache": false,
-      "dependsOn": [
-        "^build"
-      ],
-      "outputs": []
+      "cache": false
     },
     "build:lib": {
       "cache": false
