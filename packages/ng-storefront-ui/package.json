@@ -9,7 +9,8 @@
     "directory": "packages/ng-storefront-ui"
   },
   "scripts": {
-    "build:lib": "ng build ng-storefront-ui"
+    "build:lib": "ng build ng-storefront-ui",
+    "gc": "ng generate component"
   },
   "dependencies": {
     "@angular/animations": "^16.0.0",

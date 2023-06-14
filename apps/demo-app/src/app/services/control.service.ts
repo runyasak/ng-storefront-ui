@@ -13,7 +13,10 @@ export class ControlService {
         const queryModelValue = this.route.snapshot.queryParams[cur.modelName];
 
         if (!queryModelValue) {
-          return { ...acc, [cur.modelName]: models ? models[cur.modelName] : undefined };
+          return {
+            ...acc,
+            [cur.modelName]: models ? models[cur.modelName] : undefined,
+          };
         }
 
         if (cur.type === 'boolean') {
@@ -25,13 +28,14 @@ export class ControlService {
         }
 
         return { ...acc, [cur.modelName]: queryModelValue };
-      }, {} as T),
+      }, {} as T)
     );
 
     effect(() => {
       const paramsObject = Object.keys(state()).reduce(
-        (acc, cur) => (models && state()[cur] !== models[cur] ? { ...acc, [cur]: state()[cur] } : acc),
-        {},
+        (acc, cur) =>
+          models && state()[cur] !== models[cur] ? { ...acc, [cur]: state()[cur] } : acc,
+        {}
       );
 
       const params = new HttpParams({ fromObject: paramsObject }).toString();
@@ -39,7 +43,7 @@ export class ControlService {
       window.history.replaceState(
         window.history.state,
         window.document.title,
-        params ? `${window.location.pathname}?${params}` : window.location.pathname,
+        params ? `${window.location.pathname}?${params}` : window.location.pathname
       );
     });
 

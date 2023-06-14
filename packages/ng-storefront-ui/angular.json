@@ -3,9 +3,7 @@
   "version": 1,
   "cli": {
     "packageManager": "yarn",
-    "schematicCollections": [
-      "@angular-eslint/schematics"
-    ]
+    "schematicCollections": ["@angular-eslint/schematics"]
   },
   "newProjectRoot": "projects",
   "projects": {
@@ -33,19 +31,13 @@
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
             "tsConfig": "tsconfig.spec.json",
-            "polyfills": [
-              "zone.js",
-              "zone.js/testing"
-            ]
+            "polyfills": ["zone.js", "zone.js/testing"]
           }
         },
         "lint": {
           "builder": "@angular-eslint/builder:lint",
           "options": {
-            "lintFilePatterns": [
-              "**/*.ts",
-              "**/*.html"
-            ]
+            "lintFilePatterns": ["**/*.ts", "**/*.html"]
           }
         }
       },
@@ -54,8 +46,7 @@
           "standalone": true,
           "changeDetection": "OnPush",
           "style": "none",
-          "path": "components",
-          "skipTests": true
+          "path": "components"
         },
         "@schematics/angular:application": {
           "strict": true

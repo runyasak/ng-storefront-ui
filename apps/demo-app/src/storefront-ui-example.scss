@@ -171,8 +171,8 @@
   }
 
   select,
-  input[type="range"],
-  input[type="text"],
+  input[type='range'],
+  input[type='text'],
   textarea {
     min-width: 200px;
     border-radius: 5px;
@@ -180,7 +180,7 @@
   }
 
   select,
-  input[type="text"],
+  input[type='text'],
   textarea {
     border: 1px solid rgb(229, 231, 235);
   }
@@ -205,8 +205,8 @@
     padding: 2px 4px;
     display: inline-block;
     background-color: rgb(244 244 245);
-    font-family: Consolas, Monaco, Lucida Console, Liberation Mono,
-      DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, sans-serif;
+    font-family: Consolas, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono,
+      Bitstream Vera Sans Mono, Courier New, sans-serif;
   }
 
   .description {
@@ -263,7 +263,7 @@
 
       &:before {
         position: absolute;
-        content: "";
+        content: '';
         height: 16px;
         width: 16px;
         left: 4px;

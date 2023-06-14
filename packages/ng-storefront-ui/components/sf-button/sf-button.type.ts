@@ -1,11 +1,11 @@
 export enum SfButtonSize {
-  sm = "sm",
-  base = "base",
-  lg = "lg",
+  sm = 'sm',
+  base = 'base',
+  lg = 'lg',
 }
 
 export enum SfButtonVariant {
-  primary = "primary",
-  secondary = "secondary",
-  tertiary = "tertiary",
+  primary = 'primary',
+  secondary = 'secondary',
+  tertiary = 'tertiary',
 }

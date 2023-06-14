@@ -8,7 +8,9 @@
     (click)="handleClick()"
     (keypress)="handleClick()"
   >
-    <p *ngIf="prepareControlsData.state().slotPrefix" prefix>{{ prepareControlsData.state().slotPrefix }}</p>
+    <p *ngIf="prepareControlsData.state().slotPrefix" prefix>
+      {{ prepareControlsData.state().slotPrefix }}
+    </p>
 
     <span class="bread-words">{{ prepareControlsData.state().label }}</span>
 
@@ -22,6 +24,8 @@
       {{ prepareControlsData.state().secondaryText }}
     </p>
 
-    <p *ngIf="prepareControlsData.state().slotSuffix" suffix>{{ prepareControlsData.state().slotSuffix }}</p>
+    <p *ngIf="prepareControlsData.state().slotSuffix" suffix>
+      {{ prepareControlsData.state().slotSuffix }}
+    </p>
   </li>
 </app-example-wrapper>

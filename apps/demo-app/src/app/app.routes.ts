@@ -14,16 +14,16 @@ export const routes: Routes = [
       {
         path: 'sf-button',
         loadComponent: () =>
-          import(
-            './pages/example-sf-button-page/example-sf-button-page.component'
-          ).then((mod) => mod.ExampleSfButtonPageComponent),
+          import('./pages/example-sf-button-page/example-sf-button-page.component').then(
+            (mod) => mod.ExampleSfButtonPageComponent
+          ),
       },
       {
         path: 'sf-list-item',
         loadComponent: () =>
-          import(
-            './pages/example-sf-list-item-page/example-sf-list-item-page.component'
-          ).then((mod) => mod.ExamplesSfListItemPageComponent),
+          import('./pages/example-sf-list-item-page/example-sf-list-item-page.component').then(
+            (mod) => mod.ExamplesSfListItemPageComponent
+          ),
       },
     ],
   },

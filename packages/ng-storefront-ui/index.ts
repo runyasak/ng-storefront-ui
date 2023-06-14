@@ -1,3 +1,3 @@
-export * from "./components/public-api";
+export * from './components/public-api';
 
-export { tailwindConfig } from "./tailwind.config";
+export { tailwindConfig } from './tailwind.config';
