@@ -20,6 +20,7 @@ import { filter, map } from 'rxjs';
 })
 export class ExampleLayoutComponent {
   components = [
+    { name: 'Icon Base', url: '/sf-icon-base' },
     { name: 'Button', url: '/sf-button' },
     { name: 'List Item', url: '/sf-list-item' },
   ];

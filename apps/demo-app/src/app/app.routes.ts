@@ -12,6 +12,13 @@ export const routes: Routes = [
         component: ExampleIndexPageComponent,
       },
       {
+        path: 'sf-icon-base',
+        loadComponent: () =>
+          import('./pages/example-sf-icon-base-page/example-sf-icon-base-page.component').then(
+            (mod) => mod.ExampleSfIconBasePageComponent
+          ),
+      },
+      {
         path: 'sf-button',
         loadComponent: () =>
           import('./pages/example-sf-button-page/example-sf-button-page.component').then(
