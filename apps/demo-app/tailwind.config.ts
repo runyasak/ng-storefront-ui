@@ -1,5 +1,5 @@
 import type { Config } from 'tailwindcss';
-import { tailwindConfig } from '@ng-storefront-ui/lib/tailwind.config';
+import { tailwindConfig } from '../../packages/ng-storefront-ui/tailwind.config';
 
 export default <Config>{
   presets: [tailwindConfig],

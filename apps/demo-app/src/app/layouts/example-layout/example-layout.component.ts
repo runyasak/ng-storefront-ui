@@ -2,7 +2,7 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { CommonModule } from '@angular/common';
 import { NavigationEnd, Router, RouterLink, RouterOutlet } from '@angular/router';
-import { SfListItemComponent } from '@ng-storefront-ui/lib';
+import { SfListItemComponent } from '@ng-storefront-ui';
 import { filter, map } from 'rxjs';
 
 @Component({

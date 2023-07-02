@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, Input, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { SfButtonComponent } from '@ng-storefront-ui/lib';
+import { SfButtonComponent } from '@ng-storefront-ui';
 import { FormsModule } from '@angular/forms';
 import { Controls } from './controls.types';
 

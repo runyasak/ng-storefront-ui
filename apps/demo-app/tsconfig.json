@@ -4,7 +4,8 @@
   "compilerOptions": {
     "baseUrl": "./",
     "paths": {
-      "@ng-storefront-ui/lib": ["../../packages/ng-storefront-ui"]
+      "@ng-storefront-ui": ["../../packages/ng-storefront-ui"],
+      "@ng-storefront-ui/*": ["../../packages/ng-storefront-ui/*"]
     },
     "outDir": "./dist/out-tsc",
     "forceConsistentCasingInFileNames": true,

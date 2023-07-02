@@ -2,8 +2,8 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ExampleWrapperComponent } from 'src/app/components/example-wrapper/example-wrapper.component';
 import { Controls } from 'src/app/components/controls/controls.types';
-import { SfListItemComponent } from '@ng-storefront-ui/lib';
-import { SfListItemSize } from '@ng-storefront-ui/lib/components/sf-list-item/sf-list-item.type';
+import { SfListItemComponent } from '@ng-storefront-ui';
+import { SfListItemSize } from '@ng-storefront-ui/components/sf-list-item/sf-list-item.type';
 import { ControlService } from 'src/app/services/control.service';
 
 @Component({

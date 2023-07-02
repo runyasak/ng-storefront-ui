@@ -8,6 +8,9 @@
     "build:lib": {
       "cache": false
     },
+    "build:demo": {
+      "cache": false
+    },
     "test:lib": {
       "cache": false
     }

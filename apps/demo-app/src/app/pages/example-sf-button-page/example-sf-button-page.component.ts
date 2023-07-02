@@ -1,8 +1,8 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Controls } from 'src/app/components/controls/controls.types';
-import { SfButtonComponent } from '@ng-storefront-ui/lib';
-import { SfButtonVariant } from '@ng-storefront-ui/lib/components/sf-button/sf-button.type';
+import { SfButtonComponent } from '@ng-storefront-ui';
+import { SfButtonVariant } from '@ng-storefront-ui/components/sf-button/sf-button.type';
 import { ControlService } from 'src/app/services/control.service';
 import { ExampleWrapperComponent } from 'src/app/components/example-wrapper/example-wrapper.component';
 
