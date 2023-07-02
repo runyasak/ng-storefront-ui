@@ -8,9 +8,10 @@
     (click)="handleClick()"
     (keypress)="handleClick()"
   >
-    <p *ngIf="prepareControlsData.state().slotPrefix" prefix>
-      {{ prepareControlsData.state().slotPrefix }}
-    </p>
+    <sf-icon-tune
+      *ngIf="prepareControlsData.state().slotPrefix === 'Tune icon'"
+      prefix
+    ></sf-icon-tune>
 
     <span class="bread-words flex gap-2">
       {{ prepareControlsData.state().label }}
