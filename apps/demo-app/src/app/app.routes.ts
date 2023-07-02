@@ -26,6 +26,13 @@ export const routes: Routes = [
           ),
       },
       {
+        path: 'sf-counter',
+        loadComponent: () =>
+          import('./pages/example-sf-counter-page/example-sf-counter-page.component').then(
+            (mod) => mod.ExampleSfCounterPageComponent
+          ),
+      },
+      {
         path: 'sf-list-item',
         loadComponent: () =>
           import('./pages/example-sf-list-item-page/example-sf-list-item-page.component').then(
