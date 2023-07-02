@@ -47,10 +47,11 @@ jobs:
       - name: Build
         run: pnpm run build:demo
 
-      - name: Deploy
-        if: success()
-        uses: peaceiris/actions-gh-pages@v3
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v1
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: apps/demo-app/dist
-          enable_jekyll: true
+          path: apps/demo-app/dist
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v1
