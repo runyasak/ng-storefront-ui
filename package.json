@@ -11,6 +11,7 @@
   "scripts": {
     "build": "turbo run build",
     "build:lib": "turbo run build:lib",
+    "build:demo": "turbo run build:demo",
     "test:lib": "turbo run test:lib",
     "serve": "turbo run serve",
     "postbuild:lib": "cp -f README.md dist/README.md && cp LICENSE dist/LICENSE && cd dist/ && npm pack",
