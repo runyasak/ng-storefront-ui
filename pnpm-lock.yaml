@@ -137,9 +137,42 @@ importers:
 
   packages/ng-storefront-ui:
     dependencies:
+      '@angular/animations':
+        specifier: ^16.1.3
+        version: 16.1.3(@angular/core@16.1.3)
+      '@angular/common':
+        specifier: ^16.1.3
+        version: 16.1.3(@angular/core@16.1.3)(rxjs@7.8.0)
+      '@angular/compiler':
+        specifier: ^16.1.3
+        version: 16.1.3(@angular/core@16.1.3)
+      '@angular/core':
+        specifier: ^16.1.3
+        version: 16.1.3(rxjs@7.8.0)(zone.js@0.13.0)
+      '@angular/forms':
+        specifier: ^16.1.3
+        version: 16.1.3(@angular/common@16.1.3)(@angular/core@16.1.3)(@angular/platform-browser@16.1.3)(rxjs@7.8.0)
+      '@angular/platform-browser':
+        specifier: ^16.1.3
+        version: 16.1.3(@angular/animations@16.1.3)(@angular/common@16.1.3)(@angular/core@16.1.3)
+      '@angular/platform-browser-dynamic':
+        specifier: ^16.1.3
+        version: 16.1.3(@angular/common@16.1.3)(@angular/compiler@16.1.3)(@angular/core@16.1.3)(@angular/platform-browser@16.1.3)
+      '@angular/router':
+        specifier: ^16.1.3
+        version: 16.1.3(@angular/common@16.1.3)(@angular/core@16.1.3)(@angular/platform-browser@16.1.3)(rxjs@7.8.0)
       '@mertasan/tailwindcss-variables':
         specifier: ^2.6.1
         version: 2.6.1(autoprefixer@10.4.14)(postcss@8.4.24)
+      rxjs:
+        specifier: ~7.8.0
+        version: 7.8.0
+      tslib:
+        specifier: ^2.3.0
+        version: 2.5.0
+      zone.js:
+        specifier: ~0.13.0
+        version: 0.13.0
     devDependencies:
       karma-spec-reporter:
         specifier: ^0.0.36
@@ -677,29 +710,6 @@ packages:
       - supports-color
     dev: true
 
-  /@babel/core@7.22.1:
-    resolution: {integrity: sha512-Hkqu7J4ynysSXxmAahpN1jjRwVJ+NdpraFLIWflgjpVob3KNyK3/tIUc7Q7szed8WMp0JNa7Qtd1E9Oo22F9gA==}
-    engines: {node: '>=6.9.0'}
-    dependencies:
-      '@ampproject/remapping': 2.2.1
-      '@babel/code-frame': 7.21.4
-      '@babel/generator': 7.22.3
-      '@babel/helper-compilation-targets': 7.22.1(@babel/core@7.22.1)
-      '@babel/helper-module-transforms': 7.22.1
-      '@babel/helpers': 7.22.3
-      '@babel/parser': 7.22.4
-      '@babel/template': 7.21.9
-      '@babel/traverse': 7.22.4
-      '@babel/types': 7.22.4
-      convert-source-map: 1.9.0
-      debug: 4.3.4
-      gensync: 1.0.0-beta.2
-      json5: 2.2.3
-      semver: 6.3.0
-    transitivePeerDependencies:
-      - supports-color
-    dev: true
-
   /@babel/core@7.22.5:
     resolution: {integrity: sha512-SBuTAjg91A3eKOvD+bPEz3LlhHZRNu1nFOVts9lzDJTXshHTjII0BAtDS3Y2DAkdZdDKWVZGVwkDfc4Clxn1dg==}
     engines: {node: '>=6.9.0'}
@@ -775,20 +785,6 @@ packages:
     dependencies:
       '@babel/compat-data': 7.22.3
       '@babel/core': 7.21.4
-      '@babel/helper-validator-option': 7.21.0
-      browserslist: 4.21.7
-      lru-cache: 5.1.1
-      semver: 6.3.0
-    dev: true
-
-  /@babel/helper-compilation-targets@7.22.1(@babel/core@7.22.1):
-    resolution: {integrity: sha512-Rqx13UM3yVB5q0D/KwQ8+SPfX/+Rnsy1Lw1k/UwOC4KC6qrzIQoY3lYnBu5EHKBlEHHcj0M0W8ltPSkD8rqfsQ==}
-    engines: {node: '>=6.9.0'}
-    peerDependencies:
-      '@babel/core': ^7.0.0
-    dependencies:
-      '@babel/compat-data': 7.22.3
-      '@babel/core': 7.22.1
       '@babel/helper-validator-option': 7.21.0
       browserslist: 4.21.7
       lru-cache: 5.1.1
@@ -901,7 +897,7 @@ packages:
     resolution: {integrity: sha512-Gl7sK04b/2WOb6OPVeNy9eFKeD3L6++CzL3ykPOWqTn08xgYYK0wz4TUh2feIImDXxcVW3/9WQ1NMKY66/jfZA==}
     engines: {node: '>=6.9.0'}
     dependencies:
-      '@babel/types': 7.22.4
+      '@babel/types': 7.22.5
     dev: true
 
   /@babel/helper-module-imports@7.21.4:
@@ -6497,7 +6493,7 @@ packages:
     resolution: {integrity: sha512-pzqtp31nLv/XFOzXGuvhCb8qhjmTVo5vjVk19XE4CRlSWz0KoeJ3bw9XsA7nOp9YBf4qHjwBxkDzKcME/J29Yg==}
     engines: {node: '>=8'}
     dependencies:
-      '@babel/core': 7.22.1
+      '@babel/core': 7.22.5
       '@babel/parser': 7.22.4
       '@istanbuljs/schema': 0.1.3
       istanbul-lib-coverage: 3.2.0
