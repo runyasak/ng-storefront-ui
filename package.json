@@ -9,6 +9,8 @@
     "directory": "packages/ng-storefront-ui"
   },
   "scripts": {
+    "gen:lib-comp": "cd packages/ng-storefront-ui && ng g c",
+    "gen:demo-page": "cd apps/demo-app && ng g c --skip-selector",
     "build": "turbo run build",
     "build:lib": "turbo run build:lib",
     "build:demo": "turbo run build:demo",
