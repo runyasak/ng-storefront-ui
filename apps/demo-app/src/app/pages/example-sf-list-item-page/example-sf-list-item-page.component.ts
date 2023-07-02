@@ -2,13 +2,13 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ExampleWrapperComponent } from 'src/app/components/example-wrapper/example-wrapper.component';
 import { Controls } from 'src/app/components/controls/controls.types';
-import { SfListItemComponent } from '@ng-storefront-ui';
+import { SfCounterComponent, SfListItemComponent } from '@ng-storefront-ui';
 import { SfListItemSize } from '@ng-storefront-ui/components/sf-list-item/sf-list-item.type';
 import { ControlService } from 'src/app/services/control.service';
 
 @Component({
   standalone: true,
-  imports: [CommonModule, ExampleWrapperComponent, SfListItemComponent],
+  imports: [CommonModule, ExampleWrapperComponent, SfCounterComponent, SfListItemComponent],
   templateUrl: './example-sf-list-item-page.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
   providers: [ControlService],
@@ -32,13 +32,12 @@ export class ExamplesSfListItemPageComponent {
       propType: 'string',
       description: 'Set secondary text',
     },
-    // [Todo]: will be used with sf-counter later
-    // {
-    //   type: 'text',
-    //   modelName: 'counter',
-    //   propType: 'string',
-    //   description: 'Set counter value',
-    // },
+    {
+      type: 'text',
+      modelName: 'counter',
+      propType: 'string',
+      description: 'Set counter value',
+    },
     // -----------------------------------------
     // [Todo]: will be used with sf-icon-tune later
     {
@@ -82,7 +81,7 @@ export class ExamplesSfListItemPageComponent {
   prepareControlsData = this.controlService.prepareControls(this.controls, {
     label: 'Label',
     size: SfListItemSize.base,
-    counter: 123,
+    counter: '123',
     slotPrefix: undefined,
     slotSuffix: undefined,
     secondaryText: 'Secondary text',

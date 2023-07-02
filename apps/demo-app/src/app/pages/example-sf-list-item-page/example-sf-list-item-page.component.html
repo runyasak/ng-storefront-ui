@@ -12,7 +12,17 @@
       {{ prepareControlsData.state().slotPrefix }}
     </p>
 
-    <span class="bread-words">{{ prepareControlsData.state().label }}</span>
+    <span class="bread-words flex gap-2">
+      {{ prepareControlsData.state().label }}
+      <sf-counter
+        *ngIf="prepareControlsData.state().counter"
+        class="font-normal"
+        [ngClass]="{ '!text-disabled-500': prepareControlsData.state().disabled }"
+        [size]="prepareControlsData.state().size === 'sm' ? 'sm' : 'base'"
+      >
+        {{ prepareControlsData.state().counter }}
+      </sf-counter>
+    </span>
 
     <p
       class="text-xs font-normal break-words text-neutral-500"
