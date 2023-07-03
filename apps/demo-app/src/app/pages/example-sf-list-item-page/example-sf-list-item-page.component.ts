@@ -2,7 +2,12 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ExampleWrapperComponent } from 'src/app/components/example-wrapper/example-wrapper.component';
 import { Controls } from 'src/app/components/controls/controls.types';
-import { SfCounterComponent, SfIconTuneComponent, SfListItemComponent } from '@ng-storefront-ui';
+import {
+  SfCounterComponent,
+  SfIconChevronRightComponent,
+  SfIconTuneComponent,
+  SfListItemComponent,
+} from '@ng-storefront-ui';
 import { SfListItemSize } from '@ng-storefront-ui/components/sf-list-item/sf-list-item.type';
 import { ControlService } from 'src/app/services/control.service';
 
@@ -13,6 +18,7 @@ import { ControlService } from 'src/app/services/control.service';
     ExampleWrapperComponent,
     SfCounterComponent,
     SfIconTuneComponent,
+    SfIconChevronRightComponent,
     SfListItemComponent,
   ],
   templateUrl: './example-sf-list-item-page.component.html',
@@ -50,15 +56,12 @@ export class ExamplesSfListItemPageComponent {
       description: 'Custom component that could be placed before the element.',
       options: ['none', 'Tune icon'],
     },
-    // -----------------------------------------
-    // [Todo]: will be used with sf-icon-chevron-right later
     {
-      type: 'text',
+      type: 'select',
       modelName: 'slotSuffix',
       description: 'Custom component that could be placed after the element.',
-      propType: 'string',
+      options: ['none', 'Chevron right icon'],
     },
-    // -----------------------------------------
     {
       type: 'select',
       modelName: 'size',

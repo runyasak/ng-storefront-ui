@@ -35,8 +35,9 @@
       {{ prepareControlsData.state().secondaryText }}
     </p>
 
-    <p *ngIf="prepareControlsData.state().slotSuffix" suffix>
-      {{ prepareControlsData.state().slotSuffix }}
-    </p>
+    <sf-icon-chevron-right
+      *ngIf="prepareControlsData.state().slotSuffix === 'Chevron right icon'"
+      suffix
+    />
   </li>
 </app-example-wrapper>
