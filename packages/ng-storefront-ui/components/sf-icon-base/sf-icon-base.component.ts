@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, Input, computed } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SfIconSize } from './sf-icon-base.type';
 
@@ -14,7 +14,9 @@ export class SfIconBaseComponent {
 
   @Input() size: keyof typeof SfIconSize = SfIconSize.base;
 
-  sizeClasses = computed(() => {
+  @Input() viewBox = '';
+
+  get sizeClasses() {
     switch (this.size) {
       case SfIconSize.xs:
         return 'w-4 h-4';
@@ -33,5 +35,5 @@ export class SfIconBaseComponent {
       default:
         return 'w-6 h-6';
     }
-  });
+  }
 }
