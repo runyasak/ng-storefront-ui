@@ -2,6 +2,8 @@
  * Public API Surface of ng-storefront-ui
  */
 
+export * from './sf-badge/sf-badge.component';
+
 export * from './sf-button/sf-button.component';
 
 export * from './sf-counter/sf-counter.component';

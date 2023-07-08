@@ -19,6 +19,13 @@ export const routes: Routes = [
           ),
       },
       {
+        path: 'sf-badge',
+        loadComponent: () =>
+          import('./pages/example-sf-badge-page/example-sf-badge-page.component').then(
+            (mod) => mod.ExampleSfBadgePageComponent
+          ),
+      },
+      {
         path: 'sf-button',
         loadComponent: () =>
           import('./pages/example-sf-button-page/example-sf-button-page.component').then(
