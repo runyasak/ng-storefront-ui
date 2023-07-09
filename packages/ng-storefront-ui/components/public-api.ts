@@ -23,3 +23,5 @@ export * from './sf-icon-star-half/sf-icon-star-half.component';
 export * from './sf-icon-tune/sf-icon-tune.component';
 
 export * from './sf-list-item/sf-list-item.component';
+
+export * from './sf-rating/sf-rating.component';

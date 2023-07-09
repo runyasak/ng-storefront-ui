@@ -25,6 +25,7 @@ export class ExampleLayoutComponent {
     { name: 'Button', url: '/sf-button' },
     { name: 'Counter', url: '/sf-counter' },
     { name: 'List Item', url: '/sf-list-item' },
+    { name: 'Rating', url: '/sf-rating' },
   ];
 
   navigationUrl$ = this.router.events.pipe(

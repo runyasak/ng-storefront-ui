@@ -1,0 +1,8 @@
+<app-example-wrapper [controls]="controls" [state]="prepareControlsData.state">
+  <sf-rating
+    [value]="prepareControlsData.state().value"
+    [max]="prepareControlsData.state().max"
+    [size]="prepareControlsData.state().size"
+    [halfIncrement]="prepareControlsData.state().halfIncrement"
+  ></sf-rating>
+</app-example-wrapper>

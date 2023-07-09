@@ -33,7 +33,7 @@
             </ng-container>
 
             <ng-template #booleanControl>
-              <div *ngIf="control.type === 'boolean'; else inputTextControl" class="switch-wrapper">
+              <div *ngIf="control.type === 'boolean'; else rangeControl" class="switch-wrapper">
                 <label class="switch">
                   <input
                     [ngModel]="state()[control.modelName]"
@@ -45,6 +45,21 @@
                 </label>
                 <span class="ml-2">{{ state()[control.modelName] }}</span>
               </div>
+            </ng-template>
+
+            <ng-template #rangeControl>
+              <input
+                *ngIf="control.type === 'range'; else inputTextControl"
+                [ngModel]="state()[control.modelName]"
+                (ngModelChange)="handleControlChange($event, control.modelName)"
+                class="border rounded-md"
+                type="range"
+                [name]="control.modelName + '-' + index"
+                [attr.aria-labelledby]="control.modelName"
+                [attr.min]="control.rangeOption?.min"
+                [attr.max]="control.rangeOption?.max"
+                [attr.step]="control.rangeOption?.step"
+              />
             </ng-template>
 
             <ng-template #inputTextControl>

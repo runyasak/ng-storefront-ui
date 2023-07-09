@@ -12,4 +12,9 @@ export type Controls = {
   propType?: string;
   isRequired?: boolean;
   options?: (ControlOptionBind | string)[] | readonly (ControlOptionBind | string)[];
+  rangeOption?: {
+    min?: number;
+    max?: number;
+    step?: number;
+  };
 }[];

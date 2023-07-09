@@ -46,6 +46,13 @@ export const routes: Routes = [
             (mod) => mod.ExamplesSfListItemPageComponent
           ),
       },
+      {
+        path: 'sf-rating',
+        loadComponent: () =>
+          import('./pages/example-sf-rating-page/example-sf-rating-page.component').then(
+            (mod) => mod.ExampleSfRatingPageComponent
+          ),
+      },
     ],
   },
 ];
