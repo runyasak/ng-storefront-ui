@@ -47,7 +47,10 @@
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
-          "standalone": true
+          "standalone": true,
+          "changeDetection": "OnPush",
+          "inlineStyle": true,
+          "skipTests": true
         },
         "@schematics/angular:directive": {
           "standalone": true
@@ -77,7 +80,10 @@
             "styles": [
               "projects/demo-app/src/styles.css"
             ],
-            "scripts": []
+            "scripts": [],
+            "allowedCommonJsDependencies": [
+              "@mertasan/tailwindcss-variables"
+            ]
           },
           "configurations": {
             "production": {

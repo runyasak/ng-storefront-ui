@@ -1,4 +1,4 @@
-import { tailwindConfig } from 'projects/ng-storefront-ui';
+import { tailwindConfig } from './projects/ng-storefront-ui/src/lib/tailwind.config';
 import { Config } from 'tailwindcss';
 
 export default <Config>{
