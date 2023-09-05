@@ -8,7 +8,7 @@ describe('SfButtonComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [SfButtonComponent]
+      imports: [SfButtonComponent],
     });
     fixture = TestBed.createComponent(SfButtonComponent);
     component = fixture.componentInstance;

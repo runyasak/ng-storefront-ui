@@ -6,13 +6,8 @@ module.exports = function (config) {
     customLaunchers: {
       ChromeHeadless: {
         base: 'Chrome',
-        flags: [
-          '--no-sandbox',
-          '--disable-gpu',
-          '--headless',
-          '--remote-debugging-port=9222'
-        ]
-      }
+        flags: ['--no-sandbox', '--disable-gpu', '--headless', '--remote-debugging-port=9222'],
+      },
     },
     basePath: '',
     frameworks: ['jasmine', '@angular-devkit/build-angular'],
@@ -31,10 +26,10 @@ module.exports = function (config) {
         // for example, you can disable the random execution with `random: false`
         // or set a specific seed with `seed: 4321`
       },
-      clearContext: false // leave Jasmine Spec Runner output visible in browser
+      clearContext: false, // leave Jasmine Spec Runner output visible in browser
     },
     jasmineHtmlReporter: {
-      suppressAll: true // removes the duplicated traces
+      suppressAll: true, // removes the duplicated traces
     },
     reporters: ['progress', 'kjhtml', 'spec'],
     port: 9876,
@@ -43,6 +38,6 @@ module.exports = function (config) {
     autoWatch: true,
     browsers: ['ChromeHeadless'],
     singleRun: true,
-    restartOnFileChange: true
+    restartOnFileChange: true,
   });
 };

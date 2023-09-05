@@ -43,10 +43,7 @@ export class SfButtonComponent {
   get sizeClasses() {
     switch (this.size) {
       case SfButtonSize.sm:
-        return [
-          this.square ? 'p-1.5' : 'leading-5 text-sm py-1.5 px-3',
-          'gap-1.5',
-        ];
+        return [this.square ? 'p-1.5' : 'leading-5 text-sm py-1.5 px-3', 'gap-1.5'];
       case SfButtonSize.lg:
         return [this.square ? 'p-4' : 'py-3 leading-6 px-6', 'gap-3'];
       default:

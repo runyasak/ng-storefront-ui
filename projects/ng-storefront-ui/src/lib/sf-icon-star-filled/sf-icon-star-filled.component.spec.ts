@@ -8,7 +8,7 @@ describe('SfIconStarFilledComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [SfIconStarFilledComponent]
+      imports: [SfIconStarFilledComponent],
     });
     fixture = TestBed.createComponent(SfIconStarFilledComponent);
     component = fixture.componentInstance;

@@ -18,8 +18,7 @@ export const tailwindConfig: Config = {
         DEFAULT: '2px',
       },
       boxShadow: {
-        DEFAULT:
-          '0px 1px 3px rgba(0, 0, 0, 0.1), 0px 1px 2px rgba(0, 0, 0, 0.06)',
+        DEFAULT: '0px 1px 3px rgba(0, 0, 0, 0.1), 0px 1px 2px rgba(0, 0, 0, 0.06)',
         md: '0px 4px 6px -1px rgba(0, 0, 0, 0.1), 0px 2px 4px -1px rgba(0, 0, 0, 0.06)',
       },
       backgroundImage: {
@@ -146,8 +145,7 @@ export const tailwindConfig: Config = {
       animation: {
         'spin-slow': 'spin 1.5s linear infinite',
         line: 'line 1.5s ease-in infinite',
-        'stroke-loader-circular':
-          'stroke-loader-circular 2s ease-in-out infinite',
+        'stroke-loader-circular': 'stroke-loader-circular 2s ease-in-out infinite',
       },
       fontSize: {
         '2xs': ['10px', '11px'],
