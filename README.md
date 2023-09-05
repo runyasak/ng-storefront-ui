@@ -1,27 +1,51 @@
-# NgStorefrontUi
+# Ng-Storefront UI (🚧🚨 Work in progress 🚨🚧)
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.0.
+A frontend library for Angular that helps developers quickly build fast, accessible, and beautiful storefronts.
 
-## Development server
+Ng-Storefront UI is a comprehensive UI collection, built on the foundation of [Storefront UI v2](https://docs.storefrontui.io/v2/), and it provides a power of [standalone compoents](https://angular.io/guide/standalone-components) designed to simplify Angular app development. Seamlessly integrate these components into your work for an enhanced user interface experience.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+# Getting started
 
-## Code scaffolding
+- Installed all dependencies
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+```sh
+npm i -D tailwindcss ng-storefront-ui
+```
 
-## Build
+- Modify your `tailwind.config.js`
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+Ng-Storefront UI plugs into your Tailwind configuration, based on [Storefront UI v2](https://docs.storefrontui.io/v2/), to add any base styles and CSS variables. To do this, you need to import the Storefront UI Tailwind preset and add it to your tailwind.config.ts file.
 
-## Running unit tests
+```js
+// tailwind.config.js
+/** @type {import('tailwindcss').Config} */
+const { tailwindConfig } = require('ng-storefront-ui');
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+module.exports = {
+  presets: [tailwindConfig],
+  content: ['./src/**/*.{html,ts}', './node_modules/ng-storefront-ui/**/*.{js,mjs}'],
+  theme: {
+    extend: {},
+  },
+  plugins: [],
+};
+```
 
-## Running end-to-end tests
+- To resolve warning from `"@mertasan/tailwindcss-variables" CommonJS or AMD dependencies can cause optimization bailouts`. Please add `allowedCommonJsDependencies` with depency to `angular.json`.
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+```
+// angular.json
+{
+  "architect": {
+    "build": {
+      ...
+      "options": {
+        ...
+        "allowedCommonJsDependencies": [
+          "@mertasan/tailwindcss-variables"
+        ]
+      }
+    }
+  }
+}
+```

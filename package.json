@@ -1,12 +1,23 @@
 {
   "name": "@ng-storefront-ui/workspace",
-  "version": "0.0.0",
+  "version": "0.0.8",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/runyasak/ng-storefront-ui",
+    "directory": "packages/ng-storefront-ui"
+  },
+  "author": "Runyasak Chaengnaimuang <runyasak.c@gmail.com>",
+  "license": "MIT",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "release": "standard-version",
+    "build:demo": "ng build demo-app",
+    "build:lib": "ng build ng-storefront-ui",
+    "postbuild:lib": "cp -f README.md dist/ng-storefront-ui/README.md && cp LICENSE dist/ng-storefront-ui/LICENSE && cd dist/ng-storefront-ui/ && npm pack"
   },
   "private": true,
   "dependencies": {
@@ -20,6 +31,7 @@
     "@angular/router": "^16.2.0",
     "@mertasan/tailwindcss-variables": "^2.6.1",
     "rxjs": "~7.8.0",
+    "standard-version": "^9.5.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.13.0"
   },
@@ -40,6 +52,7 @@
     "karma-coverage": "~2.2.0",
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.1.0",
+    "karma-spec-reporter": "^0.0.36",
     "ng-packagr": "^16.2.0",
     "postcss": "^8.4.28",
     "prettier": "^3.0.2",
