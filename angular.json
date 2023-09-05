@@ -7,9 +7,11 @@
       "projectType": "library",
       "schematics": {
         "@schematics/angular:component": {
+          "prefix": "",
           "standalone": true,
           "changeDetection": "OnPush",
-          "style": "none"
+          "style": "none",
+          "inlineTemplate": true
         }
       },
       "root": "projects/ng-storefront-ui",
