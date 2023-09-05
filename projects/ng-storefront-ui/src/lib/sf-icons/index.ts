@@ -8,6 +8,8 @@ export * from './sf-icon-chevron-right/sf-icon-chevron-right.component';
 
 export * from './sf-icon-delete/sf-icon-delete.component';
 
+export * from './sf-icon-remove/sf-icon-remove.component';
+
 export * from './sf-icon-shopping-cart/sf-icon-shopping-cart.component';
 
 export * from './sf-icon-star/sf-icon-star.component';
