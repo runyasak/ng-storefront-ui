@@ -2,6 +2,8 @@ export * from './sf-icon-add/sf-icon-add.component';
 
 export * from './sf-icon-base/sf-icon-base.component';
 
+export * from './sf-icon-chevron-left/sf-icon-chevron-left.component';
+
 export * from './sf-icon-chevron-right/sf-icon-chevron-right.component';
 
 export * from './sf-icon-shopping-cart/sf-icon-shopping-cart.component';
