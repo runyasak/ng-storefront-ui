@@ -1,0 +1,17 @@
+<svg
+  *ngIf="content; else contentIcon"
+  xmlns="http://www.w3.org/2000/svg"
+  [attr.viewBox]="viewBox"
+  [ngClass]="['inline-block fill-current', sizeClasses]"
+  [innerHtml]="content"
+></svg>
+
+<ng-template #contentIcon>
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    [attr.viewBox]="viewBox"
+    [ngClass]="['inline-block fill-current', sizeClasses]"
+  >
+    <ng-content></ng-content>
+  </svg>
+</ng-template>

@@ -1,0 +1,9 @@
+<app-example-wrapper [controls]="controls" [state]="prepareControlsData.state">
+  <sf-counter
+    [size]="prepareControlsData.state().size"
+    [pill]="prepareControlsData.state().pill"
+    [ngClass]="prepareControlsData.state().fill"
+  >
+    {{ prepareControlsData.state().value }}
+  </sf-counter>
+</app-example-wrapper>

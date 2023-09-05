@@ -78,7 +78,8 @@
               "projects/demo-app/src/assets"
             ],
             "styles": [
-              "projects/demo-app/src/styles.css"
+              "projects/demo-app/src/styles.css",
+              "projects/demo-app/src/storefront-ui-example.scss"
             ],
             "scripts": [],
             "allowedCommonJsDependencies": [
