@@ -4,6 +4,8 @@ export * from './src/lib/sf-icons';
 
 export * from './src/lib/tailwind.config';
 
+export * from './src/lib/sf-accordion-item/sf-accordion-item.component';
+
 export * from './src/lib/sf-badge/sf-badge.component';
 
 export * from './src/lib/sf-button/sf-button.component';

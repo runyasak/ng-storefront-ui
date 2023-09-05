@@ -12,6 +12,13 @@ export const routes: Routes = [
         component: ExampleIndexPageComponent,
       },
       {
+        path: 'sf-accordion-item',
+        loadComponent: () =>
+          import(
+            './pages/example-sf-accordion-item-page/example-sf-accordion-item-page.component'
+          ).then((mod) => mod.ExampleSfAccordionItemPageComponent),
+      },
+      {
         path: 'sf-icon-base',
         loadComponent: () =>
           import('./pages/example-sf-icon-base-page/example-sf-icon-base-page.component').then(

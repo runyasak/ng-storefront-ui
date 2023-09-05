@@ -20,6 +20,7 @@ import { SfListItemComponent } from 'projects/ng-storefront-ui';
 })
 export class ExampleLayoutComponent {
   components = [
+    { name: 'Accordion Item', url: '/sf-accordion-item' },
     { name: 'Badge', url: '/sf-badge' },
     { name: 'Icon Base', url: '/sf-icon-base' },
     { name: 'Button', url: '/sf-button' },
