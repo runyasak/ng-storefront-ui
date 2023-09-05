@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SfIconBaseComponent } from '../sf-icon-base/sf-icon-base.component';
-import { SfIconSize } from '../../types/sf-icon-base.type';
+import { SfIconSize } from 'projects/ng-storefront-ui/src/types';
 
 @Component({
   selector: 'sf-icon-chevron-right',

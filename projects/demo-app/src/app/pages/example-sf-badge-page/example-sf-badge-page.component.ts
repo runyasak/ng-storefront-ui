@@ -1,8 +1,12 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { SfBadgeVariant, SfBadgePlacement, SfButtonComponent } from 'projects/ng-storefront-ui';
+import {
+  SfBadgeVariant,
+  SfBadgePlacement,
+  SfButtonComponent,
+  SfIconShoppingCartComponent,
+} from 'projects/ng-storefront-ui';
 import { SfBadgeComponent } from 'projects/ng-storefront-ui/src/lib/sf-badge/sf-badge.component';
-import { SfIconShoppingCartComponent } from 'projects/ng-storefront-ui/src/lib/sf-icon-shopping-cart/sf-icon-shopping-cart.component';
 import { Controls } from '../../components/controls/controls.types';
 import { ExampleWrapperComponent } from '../../components/example-wrapper/example-wrapper.component';
 import { ControlService } from '../../services/control.service';
