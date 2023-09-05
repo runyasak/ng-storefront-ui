@@ -1,0 +1,9 @@
+<app-example-wrapper [controls]="controls" [state]="prepareControlsData.state">
+  <a
+    sf-link
+    [href]="prepareControlsData.state().href"
+    [variant]="prepareControlsData.state().variant"
+  >
+    {{ prepareControlsData.state().SlotDefault }}
+  </a>
+</app-example-wrapper>

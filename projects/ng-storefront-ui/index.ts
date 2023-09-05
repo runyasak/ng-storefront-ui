@@ -10,6 +10,8 @@ export * from './src/lib/sf-button/sf-button.component';
 
 export * from './src/lib/sf-counter/sf-counter.component';
 
+export * from './src/lib/sf-link/sf-link.component';
+
 export * from './src/lib/sf-list-item/sf-list-item.component';
 
 export * from './src/lib/sf-rating/sf-rating.component';

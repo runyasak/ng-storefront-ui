@@ -40,6 +40,13 @@ export const routes: Routes = [
           ),
       },
       {
+        path: 'sf-link',
+        loadComponent: () =>
+          import('./pages/example-sf-link-page/example-sf-link-page.component').then(
+            (mod) => mod.ExampleSfLinkPageComponent
+          ),
+      },
+      {
         path: 'sf-list-item',
         loadComponent: () =>
           import('./pages/example-sf-list-item-page/example-sf-list-item-page.component').then(

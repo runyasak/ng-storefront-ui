@@ -24,6 +24,7 @@ export class ExampleLayoutComponent {
     { name: 'Icon Base', url: '/sf-icon-base' },
     { name: 'Button', url: '/sf-button' },
     { name: 'Counter', url: '/sf-counter' },
+    { name: 'Link', url: '/sf-link' },
     { name: 'List Item', url: '/sf-list-item' },
     { name: 'Rating', url: '/sf-rating' },
   ];
