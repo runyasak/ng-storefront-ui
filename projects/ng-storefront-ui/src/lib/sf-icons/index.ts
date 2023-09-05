@@ -1,3 +1,5 @@
+export * from './sf-icon-add/sf-icon-add.component';
+
 export * from './sf-icon-base/sf-icon-base.component';
 
 export * from './sf-icon-chevron-right/sf-icon-chevron-right.component';
