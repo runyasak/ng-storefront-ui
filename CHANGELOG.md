@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.10-alpha.0](https://github.com/runyasak/ng-storefront-ui/compare/v0.0.9...v0.0.10-alpha.0) (2023-09-06)
+
+
+### Features
+
+* **sf-icon-arrow-forward:** new component ([e3306e8](https://github.com/runyasak/ng-storefront-ui/commit/e3306e8383c26176dbdceaddd8f61425b114dea2))
+* **sf-loader-circular:** new component ([8dc5ac3](https://github.com/runyasak/ng-storefront-ui/commit/8dc5ac3051e98d79e4667db7df1f119828cfc28d))
+* **sf-textarea:** new component ([b958516](https://github.com/runyasak/ng-storefront-ui/commit/b958516d815f707a4595afaac4e4e6d65fc187ed))
+
+
+### Bug Fixes
+
+* **demo:** update example-sf-icon-base-page viewBox ([698d39e](https://github.com/runyasak/ng-storefront-ui/commit/698d39ee282778cb23aa8de6c262baf0c0d1635f))
+
 ### [0.0.9](https://github.com/runyasak/ng-storefront-ui/compare/v0.0.8...v0.0.9) (2023-09-06)
 
 
