@@ -1,9 +1,10 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit, signal } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { CommonModule } from '@angular/common';
-import { NavigationEnd, Router, RouterLink, RouterOutlet } from '@angular/router';
+import { NavigationEnd, Router, RouterLink, RouterOutlet, Routes } from '@angular/router';
 import { filter, map } from 'rxjs';
 import { SfListItemComponent } from 'projects/ng-storefront-ui';
+import { routes } from '../../app.routes';
 
 @Component({
   standalone: true,
@@ -18,17 +19,8 @@ import { SfListItemComponent } from 'projects/ng-storefront-ui';
   ],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class ExampleLayoutComponent {
-  components = [
-    { name: 'Accordion Item', url: '/sf-accordion-item' },
-    { name: 'Badge', url: '/sf-badge' },
-    { name: 'Icon Base', url: '/sf-icon-base' },
-    { name: 'Button', url: '/sf-button' },
-    { name: 'Counter', url: '/sf-counter' },
-    { name: 'Link', url: '/sf-link' },
-    { name: 'List Item', url: '/sf-list-item' },
-    { name: 'Rating', url: '/sf-rating' },
-  ];
+export class ExampleLayoutComponent implements OnInit {
+  components = signal<{ name: string; url: string }[]>([]);
 
   navigationUrl$ = this.router.events.pipe(
     map((event) => {
@@ -44,4 +36,24 @@ export class ExampleLayoutComponent {
   currentUrl = toSignal(this.navigationUrl$);
 
   constructor(private router: Router) {}
+
+  ngOnInit(): void {
+    this.components.set(
+      this.mapRoutesComponents(routes).sort((a, b) =>
+        a.name > b.name ? 1 : a.name < b.name ? -1 : 0
+      )
+    );
+  }
+
+  mapRoutesComponents(newRoutes: Routes) {
+    const result = newRoutes
+      .filter((value) => value.path === '')[0]
+      .children?.filter((value) => !!value.path)
+      .map((value) => ({
+        name: value.path?.split('-').slice(1).join(' ') || '',
+        url: `/${value.path}`,
+      }));
+
+    return result || [];
+  }
 }
