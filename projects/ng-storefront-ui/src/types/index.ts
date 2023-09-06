@@ -6,6 +6,8 @@ export * from './sf-counter.type';
 
 export * from './sf-icon-base.type';
 
+export * from './sf-loader.type';
+
 export * from './sf-list-item.type';
 
 export * from './sf-rating.type';

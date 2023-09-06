@@ -74,6 +74,13 @@ export const routes: Routes = [
             (mod) => mod.ExampleSfTextareaPageComponent
           ),
       },
+      {
+        path: 'sf-loader-circular',
+        loadComponent: () =>
+          import(
+            './pages/example-sf-loader-circular-page/example-sf-loader-circular-page.component'
+          ).then((mod) => mod.ExampleSfLoaderCircularPageComponent),
+      },
     ],
   },
 ];
