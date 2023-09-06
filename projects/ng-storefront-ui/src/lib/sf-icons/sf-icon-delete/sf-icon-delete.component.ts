@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SfIconBaseComponent } from '../sf-icon-base/sf-icon-base.component';
-import { SfIconSize } from 'projects/ng-storefront-ui';
+import { SfIconSize } from '../../../types';
 
 @Component({
   selector: 'sf-icon-delete',
