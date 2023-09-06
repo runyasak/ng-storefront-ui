@@ -3,5 +3,8 @@
   "dest": "../../dist/ng-storefront-ui",
   "lib": {
     "entryFile": "index.ts"
-  }
+  },
+  "allowedNonPeerDependencies": [
+    "@mertasan/tailwindcss-variables"
+  ]
 }
