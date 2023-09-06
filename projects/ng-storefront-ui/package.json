@@ -1,6 +1,6 @@
 {
   "name": "ng-storefront-ui",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "description": "A frontend library for Angular that helps developers quickly build fast, accessible, and beautiful storefronts.",
   "repository": {
     "type": "git",

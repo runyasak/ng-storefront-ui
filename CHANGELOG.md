@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.9](https://github.com/runyasak/ng-storefront-ui/compare/v0.0.8...v0.0.9) (2023-09-06)
+
+
+### Features
+
+* **sf-accordion-item:** new component ([ec69ca4](https://github.com/runyasak/ng-storefront-ui/commit/ec69ca4cf1fe368d59228f2d7d49faa2ce4889cf))
+* **sf-icon-add:** new component ([7cdccb2](https://github.com/runyasak/ng-storefront-ui/commit/7cdccb22827ef660d03f31f77b5a63e5d885f39c))
+* **sf-icon-chevron-left:** new component ([106f838](https://github.com/runyasak/ng-storefront-ui/commit/106f838826f1012eaeb80ce113c89370feb29e41))
+* **sf-icon-delete:** new component ([b9f6523](https://github.com/runyasak/ng-storefront-ui/commit/b9f65236bc5376bd6090c5692469a353eef7eb82))
+* **sf-icon-remove:** new component ([8a6d2e4](https://github.com/runyasak/ng-storefront-ui/commit/8a6d2e4329d0f092e01f20dab7516f2f7655851c))
+* **sf-icon-sell:** new component ([89d4398](https://github.com/runyasak/ng-storefront-ui/commit/89d43982c49d6672928bc8bfc03eb2f0983dfad6))
+* **sf-link:** new component ([2ac73ad](https://github.com/runyasak/ng-storefront-ui/commit/2ac73ad0b085e7afd8d68c6faaa8d50cecc3ad11))
+
 ### [0.0.8](https://github.com/runyasak/ng-storefront-ui/compare/v0.0.7...v0.0.8) (2023-07-27)
 
 ### [0.0.7](https://github.com/runyasak/ng-storefront-ui/compare/v0.0.6...v0.0.7) (2023-07-27)
