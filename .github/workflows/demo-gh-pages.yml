@@ -52,7 +52,7 @@ jobs:
         run: pnpm run test
 
       - name: Build
-        run: pnpm run build:demo
+        run: pnpm run build:demo --base-href "https://runyasak.github.io/ng-storefront-ui/"
 
       - name: Deploy
         if: success()
