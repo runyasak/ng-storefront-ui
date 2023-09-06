@@ -67,6 +67,13 @@ export const routes: Routes = [
             (mod) => mod.ExampleSfRatingPageComponent
           ),
       },
+      {
+        path: 'sf-textarea',
+        loadComponent: () =>
+          import('./pages/example-sf-textarea-page/example-sf-textarea-page.component').then(
+            (mod) => mod.ExampleSfTextareaPageComponent
+          ),
+      },
     ],
   },
 ];

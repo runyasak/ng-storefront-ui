@@ -9,3 +9,5 @@ export * from './sf-icon-base.type';
 export * from './sf-list-item.type';
 
 export * from './sf-rating.type';
+
+export * from './sf-textarea.type';
