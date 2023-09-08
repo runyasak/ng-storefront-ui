@@ -6,17 +6,29 @@
     </header>
 
     <ul class="sidebar-list flex flex-col">
-      <li
-        *ngFor="let component of components()"
-        sf-list-item
-        [routerLink]="[component.url]"
-        [selected]="currentUrl() === component.url"
-        class="capitalize"
-      >
-        {{ component.name }}
-      </li>
+      <ng-container
+        *ngTemplateOutlet="sidebarItems; context: { items: components() }"
+      ></ng-container>
+
+      <li sf-list-item class="font-bold text-primary-700" [disabled]="true">Showcase</li>
+
+      <ng-container
+        *ngTemplateOutlet="sidebarItems; context: { items: showcases() }"
+      ></ng-container>
     </ul>
   </div>
 
   <router-outlet />
 </div>
+
+<ng-template #sidebarItems let-items="items">
+  <li
+    *ngFor="let item of items"
+    sf-list-item
+    [routerLink]="[item.url]"
+    [selected]="currentUrl() === item.url"
+    class="capitalize pl-8"
+  >
+    {{ item.name }}
+  </li>
+</ng-template>

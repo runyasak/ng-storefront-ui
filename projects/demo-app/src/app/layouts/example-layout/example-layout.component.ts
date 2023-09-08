@@ -5,6 +5,7 @@ import { NavigationEnd, Router, RouterLink, RouterOutlet, Routes } from '@angula
 import { filter, map } from 'rxjs';
 import { SfListItemComponent } from 'projects/ng-storefront-ui';
 import { routes } from '../../app.routes';
+import { SidebarItem } from '../../types/example-layout.type';
 
 @Component({
   standalone: true,
@@ -20,7 +21,9 @@ import { routes } from '../../app.routes';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ExampleLayoutComponent implements OnInit {
-  components = signal<{ name: string; url: string }[]>([]);
+  components = signal<SidebarItem[]>([]);
+
+  showcases = signal<SidebarItem[]>([]);
 
   navigationUrl$ = this.router.events.pipe(
     map((event) => {
@@ -43,14 +46,38 @@ export class ExampleLayoutComponent implements OnInit {
         a.name > b.name ? 1 : a.name < b.name ? -1 : 0
       )
     );
+
+    this.showcases.set(
+      this.mapRoutesShowcases(routes).sort((a, b) =>
+        a.name > b.name ? 1 : a.name < b.name ? -1 : 0
+      )
+    );
   }
 
   mapRoutesComponents(newRoutes: Routes) {
     const result = newRoutes
       .filter((value) => value.path === '')[0]
-      .children?.filter((value) => !!value.path)
+      .children?.filter(
+        (value) =>
+          !!value.path ||
+          (value.data && (!value.data['category'] || value.data['category'] === 'component'))
+      )
       .map((value) => ({
         name: value.path?.split('-').slice(1).join(' ') || '',
+        url: `/${value.path}`,
+      }));
+
+    return result || [];
+  }
+
+  mapRoutesShowcases(newRoutes: Routes) {
+    const result = newRoutes
+      .filter((value) => value.path === '')[0]
+      .children?.filter(
+        (value) => !!value.path && value.data && value.data['category'] === 'showcase'
+      )
+      .map((value) => ({
+        name: value.data ? value.data['sidebarLabel'] : value.path?.split('-').join(' ') || '',
         url: `/${value.path}`,
       }));
 

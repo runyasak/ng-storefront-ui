@@ -81,6 +81,17 @@ export const routes: Routes = [
             './pages/example-sf-loader-circular-page/example-sf-loader-circular-page.component'
           ).then((mod) => mod.ExampleSfLoaderCircularPageComponent),
       },
+      {
+        path: 'forms-showcase',
+        data: {
+          category: 'showcase',
+          sidebarLabel: 'Forms',
+        },
+        loadComponent: () =>
+          import('./pages/forms-showcase-page/forms-showcase-page.component').then(
+            (mod) => mod.FormsShowcasePageComponent
+          ),
+      },
     ],
   },
 ];
