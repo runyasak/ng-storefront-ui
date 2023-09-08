@@ -7,13 +7,7 @@ import { SfTextareaSize } from '../../types';
   standalone: true,
   imports: [CommonModule],
   template: '',
-  styles: [
-    `
-      :host.ng-dirty.ng-invalid {
-        @apply ring-2 ring-negative-700;
-      }
-    `,
-  ],
+  styleUrls: ['../../../styles/form-fields.css'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SfTextareaComponent {
