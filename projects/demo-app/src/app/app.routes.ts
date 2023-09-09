@@ -82,6 +82,13 @@ export const routes: Routes = [
           ).then((mod) => mod.ExampleSfLoaderCircularPageComponent),
       },
       {
+        path: 'sf-input',
+        loadComponent: () =>
+          import('./pages/example-sf-input-page/example-sf-input-page.component').then(
+            (mod) => mod.ExampleSfInputPageComponent
+          ),
+      },
+      {
         path: 'forms-showcase',
         data: {
           category: 'showcase',
