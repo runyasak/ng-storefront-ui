@@ -11,6 +11,7 @@ All notable changes to this project will be documented in this file. See [standa
 
 * **sf-icon-arrow-forward:** new component ([e3306e8](https://github.com/runyasak/ng-storefront-ui/commit/e3306e8383c26176dbdceaddd8f61425b114dea2))
 * **sf-loader-circular:** new component ([8dc5ac3](https://github.com/runyasak/ng-storefront-ui/commit/8dc5ac3051e98d79e4667db7df1f119828cfc28d))
+* **sf-input:** new component ([08f75a206338dff9751dd2bed5be2acd8ee13995](https://github.com/runyasak/ng-storefront-ui/commit/08f75a206338dff9751dd2bed5be2acd8ee13995))
 * **sf-textarea:** new component ([b958516](https://github.com/runyasak/ng-storefront-ui/commit/b958516d815f707a4595afaac4e4e6d65fc187ed))
 
 
