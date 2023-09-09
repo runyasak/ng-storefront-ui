@@ -1,4 +1,4 @@
-# Ng-Storefront UI (🚧🚨 Work in progress 🚨🚧)
+# Ng-Storefront UI
 
 A frontend library for Angular that helps developers quickly build fast, accessible, and beautiful storefronts.
 
