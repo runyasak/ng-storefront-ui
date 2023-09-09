@@ -4,7 +4,7 @@ import { SfRatingSize } from '../../types/sf-rating.type';
 import { SfIconStarFilledComponent } from '../sf-icons/sf-icon-star-filled/sf-icon-star-filled.component';
 import { SfIconStarHalfComponent } from '../sf-icons/sf-icon-star-half/sf-icon-star-half.component';
 import { SfIconStarComponent } from '../sf-icons/sf-icon-star/sf-icon-star.component';
-import { clamp, roundToNearest } from '../../../utils';
+import { clamp, roundToNearest } from '../../../utils/rating.utils';
 
 const sizeClasses = {
   [SfRatingSize.xs]: 'text-xs',
