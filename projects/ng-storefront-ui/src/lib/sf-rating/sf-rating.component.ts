@@ -21,12 +21,19 @@ const sizeClasses = {
   template: `
     <sf-icon-star-filled
       *ngFor="let index of counter(filled)"
+      data-testid="star-filled"
       aria-hidden="true"
       class="w-[1.5em] h-[1.5em]"
     />
-    <sf-icon-star-half *ngIf="partiallyFilled" aria-hidden="true" class="w-[1.5em] h-[1.5em]" />
+    <sf-icon-star-half
+      *ngIf="partiallyFilled"
+      data-testid="star-half"
+      aria-hidden="true"
+      class="w-[1.5em] h-[1.5em]"
+    />
     <sf-icon-star
       *ngFor="let index of counter(empty)"
+      data-testid="star"
       aria-hidden="true"
       class="text-disabled-500 w-[1.5em] h-[1.5em]"
     />
