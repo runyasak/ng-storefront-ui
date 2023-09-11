@@ -1,10 +1,12 @@
 import { ChangeDetectionStrategy, Component, HostBinding, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SfRatingSize } from '../../types/sf-rating.type';
-import { SfIconStarFilledComponent } from '../sf-icons/sf-icon-star-filled/sf-icon-star-filled.component';
-import { SfIconStarHalfComponent } from '../sf-icons/sf-icon-star-half/sf-icon-star-half.component';
-import { SfIconStarComponent } from '../sf-icons/sf-icon-star/sf-icon-star.component';
 import { clamp, roundToNearest } from '../../../utils/rating.utils';
+import {
+  SfIconStarComponent,
+  SfIconStarFilledComponent,
+  SfIconStarHalfComponent,
+} from '../sf-icons';
 
 const sizeClasses = {
   [SfRatingSize.xs]: 'text-xs',

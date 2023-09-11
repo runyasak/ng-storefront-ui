@@ -1,12 +1,15 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { SfListItemComponent, SfListItemSize } from 'projects/ng-storefront-ui';
+import {
+  SfIconChevronRightComponent,
+  SfIconTuneComponent,
+  SfListItemComponent,
+  SfListItemSize,
+} from 'projects/ng-storefront-ui';
 import { SfCounterComponent } from 'projects/ng-storefront-ui/src/lib/sf-counter/sf-counter.component';
-import { SfIconTuneComponent } from 'projects/ng-storefront-ui/src/lib/sf-icons/sf-icon-tune/sf-icon-tune.component';
 import { Controls } from '../../components/controls/controls.types';
 import { ExampleWrapperComponent } from '../../components/example-wrapper/example-wrapper.component';
 import { ControlService } from '../../services/control.service';
-import { SfIconChevronRightComponent } from 'projects/ng-storefront-ui/src/lib/sf-icons/sf-icon-chevron-right/sf-icon-chevron-right.component';
 
 @Component({
   standalone: true,
