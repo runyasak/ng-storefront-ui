@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SfIconSize } from '../../../types';
-import { SfIconBaseComponent } from '../sf-icon-base/sf-icon-base.component';
+import { SfIconBaseComponent } from '../../sf-icon-base/sf-icon-base.component';
 
 @Component({
   selector: 'sf-icon-add',

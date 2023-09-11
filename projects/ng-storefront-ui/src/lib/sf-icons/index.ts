@@ -2,7 +2,7 @@ export * from './sf-icon-add/sf-icon-add.component';
 
 export * from './sf-icon-arrow-forward/sf-icon-arrow-forward.component';
 
-export * from './sf-icon-base/sf-icon-base.component';
+export * from '../sf-icon-base/sf-icon-base.component';
 
 export * from './sf-icon-chevron-left/sf-icon-chevron-left.component';
 

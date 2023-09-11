@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SfIconSize } from 'projects/ng-storefront-ui';
-import { SfIconBaseComponent } from 'projects/ng-storefront-ui/src/lib/sf-icons/sf-icon-base/sf-icon-base.component';
+import { SfIconBaseComponent } from 'projects/ng-storefront-ui/src/lib/sf-icon-base/sf-icon-base.component';
 import { Controls } from '../../components/controls/controls.types';
 import { ExampleWrapperComponent } from '../../components/example-wrapper/example-wrapper.component';
 import { ControlService } from '../../services/control.service';

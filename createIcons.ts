@@ -60,7 +60,7 @@ const createSfIcon = (
 ) => `
   import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
   import { CommonModule } from '@angular/common';
-  import { SfIconBaseComponent } from './sf-icon-base/sf-icon-base.component';
+  import { SfIconBaseComponent } from '../sf-icon-base/sf-icon-base.component';
   import { SfIconSize } from '../../types';
 
   @Component({
@@ -116,8 +116,10 @@ const createIndexExports = () => {
   const cloneSfIconsExports = [...sfIconsExports];
 
   cloneSfIconsExports.sort();
-  cloneSfIconsExports.forEach((selector) => {
-    exportsString += `export * from './${selector}.component';\n\n`;
+  cloneSfIconsExports.forEach((selector, index) => {
+    exportsString += `export * from './${selector}.component';\n${
+      index === cloneSfIconsExports.length - 1 ? '' : `\n`
+    }`;
   });
 
   return fsPromise.writeFile(`${outputDirectoryPath}/index.ts`, exportsString);
