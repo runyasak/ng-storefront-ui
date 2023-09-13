@@ -29,4 +29,6 @@ export class ExampleWrapperComponent {
     | undefined;
 
   @Input() state = signal<{ [k: string]: unknown }>({});
+
+  @Input() hideControls = false;
 }

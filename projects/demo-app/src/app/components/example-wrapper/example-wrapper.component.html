@@ -3,5 +3,5 @@
     <ng-content></ng-content>
   </div>
 
-  <app-controls [controls]="controls" [state]="state" />
+  <app-controls *ngIf="!hideControls" [controls]="controls" [state]="state" />
 </div>
