@@ -18,4 +18,42 @@ describe('SfRatingComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should render 3 filled stars when pass with value as 3', () => {
+    fixture.componentRef.setInput('value', 3);
+    fixture.detectChanges();
+
+    const filledStars = fixture.debugElement.nativeElement.querySelectorAll(
+      `[data-testid='star-filled']`
+    );
+
+    expect(filledStars.length).toEqual(3);
+  });
+
+  it('should render 4 filled stars when pass with value as 3.5`', () => {
+    fixture.componentRef.setInput('value', 3.5);
+    fixture.detectChanges();
+
+    const filledStars = fixture.debugElement.nativeElement.querySelectorAll(
+      `[data-testid='star-filled']`
+    );
+
+    expect(filledStars.length).toEqual(4);
+  });
+
+  it('should render 3 filled stars with a half when pass with value as 3.5 and `halfIncrement`', () => {
+    fixture.componentRef.setInput('value', 3.5);
+    fixture.componentRef.setInput('halfIncrement', true);
+    fixture.detectChanges();
+
+    const filledStars = fixture.debugElement.nativeElement.querySelectorAll(
+      `[data-testid='star-filled']`
+    );
+
+    const halfStar =
+      fixture.debugElement.nativeElement.querySelectorAll(`[data-testid='star-half']`);
+
+    expect(filledStars.length).toEqual(3);
+    expect(halfStar.length).toEqual(1);
+  });
 });

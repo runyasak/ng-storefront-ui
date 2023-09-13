@@ -12,6 +12,8 @@ export * from './src/lib/sf-button/sf-button.component';
 
 export * from './src/lib/sf-counter/sf-counter.component';
 
+export * from './src/lib/sf-icon-base/sf-icon-base.component';
+
 export * from './src/lib/sf-input/sf-input.component';
 
 export * from './src/lib/sf-link/sf-link.component';

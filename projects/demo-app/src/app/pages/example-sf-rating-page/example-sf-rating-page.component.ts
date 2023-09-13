@@ -1,9 +1,11 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { SfRatingSize } from 'projects/ng-storefront-ui';
-import { SfIconStarFilledComponent } from 'projects/ng-storefront-ui/src/lib/sf-icons/sf-icon-star-filled/sf-icon-star-filled.component';
-import { SfIconStarHalfComponent } from 'projects/ng-storefront-ui/src/lib/sf-icons/sf-icon-star-half/sf-icon-star-half.component';
-import { SfIconStarComponent } from 'projects/ng-storefront-ui/src/lib/sf-icons/sf-icon-star/sf-icon-star.component';
+import {
+  SfIconStarComponent,
+  SfIconStarFilledComponent,
+  SfIconStarHalfComponent,
+  SfRatingSize,
+} from 'projects/ng-storefront-ui';
 import { SfRatingComponent } from 'projects/ng-storefront-ui/src/lib/sf-rating/sf-rating.component';
 import { Controls } from '../../components/controls/controls.types';
 import { ExampleWrapperComponent } from '../../components/example-wrapper/example-wrapper.component';

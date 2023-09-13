@@ -105,7 +105,6 @@ export class ExampleSfInputPageComponent {
   constructor(private controlService: ControlService) {}
 
   handleValueChange(value: string) {
-    console.log(this.characterLimit(), this.prepareControlsData.state().characterLimit);
     this.inputValue.set(value);
   }
 }
