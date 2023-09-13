@@ -88,7 +88,7 @@ const createExports = async (file: string, doOptimiziation = false) => {
 
     const componentName = `SfIcon${capitializedCamelCaseName}`;
 
-    const replaceSvgPathContent = content.replace('path', 'svg:path');
+    const replaceSvgPathContent = content.replaceAll('<path', '<svg:path');
 
     const selector = `sf-icon-${name}`;
 
