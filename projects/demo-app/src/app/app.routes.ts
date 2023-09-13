@@ -99,6 +99,17 @@ export const routes: Routes = [
             (mod) => mod.FormsShowcasePageComponent
           ),
       },
+      {
+        path: 'icons-showcase',
+        data: {
+          category: 'showcase',
+          sidebarLabel: 'Icons',
+        },
+        loadComponent: () =>
+          import('./pages/icons-showcase-page/icons-showcase-page.component').then(
+            (mod) => mod.IconsShowcasePageComponent
+          ),
+      },
     ],
   },
 ];

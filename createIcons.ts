@@ -125,6 +125,39 @@ const createIndexExports = () => {
   return fsPromise.writeFile(`${outputDirectoryPath}/index.ts`, exportsString);
 };
 
+const createShowcasePage = (sfIconSelectors: string[]) =>
+  `/**
+ * Generated from 'createIcons.ts'
+ */
+
+import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { ExampleWrapperComponent } from '../../components/example-wrapper/example-wrapper.component';
+import {
+  SfIconBaseComponent,
+${sfIconSelectors.map((selector) => `  ${capitalize(camelize(selector))}Component`).join(`,\n`)}
+} from 'projects/ng-storefront-ui';
+
+@Component({
+  standalone: true,
+  imports: [
+    CommonModule,
+    ExampleWrapperComponent,
+    SfIconBaseComponent,
+${sfIconSelectors.map((selector) => `    ${capitalize(camelize(selector))}Component`).join(`,\n`)}
+  ],
+  template: \`
+    <app-example-wrapper [hideControls]="true">
+      <div class="flex gap-4 flex-wrap">
+${sfIconSelectors.map((selector) => `        <${selector} />`).join(`\n`)}
+      </div>
+    </app-example-wrapper>
+  \`,
+  changeDetection: ChangeDetectionStrategy.OnPush,
+})
+export class IconsShowcasePageComponent {}
+`;
+
 const generateIconFiles = async (err: NodeJS.ErrnoException | null, files: string[]) => {
   if (err) {
     return console.log('Unable to get icons directory: ' + err);
@@ -141,6 +174,11 @@ const generateIconFiles = async (err: NodeJS.ErrnoException | null, files: strin
   await createIndexExports();
 
   await createIconsUtils();
+
+  await fsPromise.writeFile(
+    'projects/demo-app/src/app/pages/icons-showcase-page/icons-showcase-page.component.ts',
+    createShowcasePage(sfIconsExports)
+  );
 
   console.log(`Creating icons has finished!`);
 };
