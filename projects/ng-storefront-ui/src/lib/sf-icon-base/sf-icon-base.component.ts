@@ -16,6 +16,8 @@ export class SfIconBaseComponent {
 
   @Input() viewBox = '';
 
+  @Input() svgClass: string | string[] = '';
+
   get sizeClasses() {
     switch (this.size) {
       case SfIconSize.xs:
@@ -35,5 +37,9 @@ export class SfIconBaseComponent {
       default:
         return 'w-6 h-6';
     }
+  }
+
+  get svgClassString() {
+    return Array.isArray(this.svgClass) ? this.svgClass.join(' ') : this.svgClass;
   }
 }

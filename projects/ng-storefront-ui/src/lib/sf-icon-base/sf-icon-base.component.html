@@ -2,7 +2,7 @@
   *ngIf="content; else contentIcon"
   xmlns="http://www.w3.org/2000/svg"
   [attr.viewBox]="viewBox"
-  [ngClass]="['inline-block fill-current', sizeClasses]"
+  [ngClass]="['inline-block fill-current', sizeClasses, svgClassString]"
   [innerHtml]="content"
 ></svg>
 
@@ -10,7 +10,7 @@
   <svg
     xmlns="http://www.w3.org/2000/svg"
     [attr.viewBox]="viewBox"
-    [ngClass]="['inline-block fill-current', sizeClasses]"
+    [ngClass]="['inline-block fill-current', sizeClasses, svgClassString]"
   >
     <ng-content></ng-content>
   </svg>
