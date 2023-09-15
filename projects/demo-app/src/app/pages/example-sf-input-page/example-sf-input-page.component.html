@@ -9,18 +9,17 @@
       {{ prepareControlsData.state().label }}
     </span>
     <sf-input
-      class="w-full"
       [size]="prepareControlsData.state().size"
       [placeholder]="prepareControlsData.state().placeholder"
-      [ngModel]="prepareControlsData.state().value"
-      [disabled]="prepareControlsData.state().disabled"
-      [ngClass]="{
-        '!bg-disabled-100 !ring-disabled-300 !ring-1 !text-disabled-500':
-          prepareControlsData.state().disabled,
-        '!bg-disabled-100 !ring-disabled-300 !ring-1 !text-neutral-500':
-          prepareControlsData.state().readonly,
-        'ng-dirty ng-invalid': prepareControlsData.state().invalid
-      }"
+      [formControl]="inputControl"
+      [wrapperClass]="[
+        prepareControlsData.state().disabled
+          ? '!bg-disabled-100 !ring-disabled-300 !ring-1 !text-disabled-500'
+          : '',
+        prepareControlsData.state().readonly
+          ? '!bg-disabled-100 !ring-disabled-300 !ring-1 !text-neutral-500'
+          : ''
+      ]"
       (ngModelChange)="handleValueChange($event)"
     ></sf-input>
   </label>

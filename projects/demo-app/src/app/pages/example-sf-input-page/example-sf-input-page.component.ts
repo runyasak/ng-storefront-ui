@@ -1,19 +1,21 @@
-import { ChangeDetectionStrategy, Component, computed, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed, effect, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ExampleWrapperComponent } from '../../components/example-wrapper/example-wrapper.component';
 import { SfInputComponent, SfInputSize } from 'projects/ng-storefront-ui';
 import { ControlService } from '../../services/control.service';
 import { Controls } from '../../components/controls/controls.types';
-import { FormsModule } from '@angular/forms';
+import { FormControl, ReactiveFormsModule } from '@angular/forms';
 
 @Component({
   standalone: true,
-  imports: [CommonModule, FormsModule, ExampleWrapperComponent, SfInputComponent],
+  imports: [CommonModule, ExampleWrapperComponent, ReactiveFormsModule, SfInputComponent],
   templateUrl: './example-sf-input-page.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
   providers: [ControlService],
 })
 export class ExampleSfInputPageComponent {
+  inputControl = new FormControl();
+
   characterLimit = signal(12);
 
   inputValue = signal('');
@@ -102,7 +104,41 @@ export class ExampleSfInputPageComponent {
     value: this.inputValue(),
   });
 
-  constructor(private controlService: ControlService) {}
+  constructor(private controlService: ControlService) {
+    if (this.prepareControlsData.state().invalid) {
+      setTimeout(() => {
+        this.inputControl.setValue('');
+        this.inputControl.markAsTouched();
+        this.inputControl.setErrors({ example: true });
+      });
+    }
+
+    effect(() => {
+      if (this.prepareControlsData.state().invalid) {
+        this.inputControl.markAsTouched();
+        this.inputControl.setErrors({ example: true });
+      } else {
+        this.inputControl.setErrors(null);
+        this.inputControl.markAsPristine();
+      }
+    });
+
+    if (this.prepareControlsData.state().disabled) {
+      setTimeout(() => {
+        console.log('disabled !!');
+        this.inputControl.markAsTouched();
+        this.inputControl.disable();
+      }, 1000);
+    }
+
+    effect(() => {
+      if (this.prepareControlsData.state().disabled) {
+        this.inputControl.disable();
+      } else {
+        this.inputControl.enable();
+      }
+    });
+  }
 
   handleValueChange(value: string) {
     this.inputValue.set(value);
