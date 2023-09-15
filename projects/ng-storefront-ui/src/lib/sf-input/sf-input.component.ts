@@ -27,7 +27,13 @@ import { ControlValueAccessor, FormsModule, NG_VALUE_ACCESSOR } from '@angular/f
       <ng-content select="[suffix]" />
     </span>
   `,
-  styleUrls: ['../../../styles/form-fields.css'],
+  styles: [
+    `
+      :host.ng-touched.ng-invalid > span {
+        @apply ring-2 ring-negative-700;
+      }
+    `,
+  ],
   changeDetection: ChangeDetectionStrategy.OnPush,
   providers: [
     {

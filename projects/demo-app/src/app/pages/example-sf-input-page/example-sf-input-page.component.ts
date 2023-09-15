@@ -105,31 +105,17 @@ export class ExampleSfInputPageComponent {
   });
 
   constructor(private controlService: ControlService) {
-    if (this.prepareControlsData.state().invalid) {
-      setTimeout(() => {
-        this.inputControl.setValue('');
-        this.inputControl.markAsTouched();
-        this.inputControl.setErrors({ example: true });
-      });
-    }
-
     effect(() => {
       if (this.prepareControlsData.state().invalid) {
         this.inputControl.markAsTouched();
+        this.inputControl.setValidators(() => ({ example: true }));
         this.inputControl.setErrors({ example: true });
       } else {
-        this.inputControl.setErrors(null);
         this.inputControl.markAsPristine();
+        this.inputControl.clearValidators();
+        this.inputControl.setErrors(null);
       }
     });
-
-    if (this.prepareControlsData.state().disabled) {
-      setTimeout(() => {
-        console.log('disabled !!');
-        this.inputControl.markAsTouched();
-        this.inputControl.disable();
-      }, 1000);
-    }
 
     effect(() => {
       if (this.prepareControlsData.state().disabled) {
