@@ -1,27 +1,33 @@
-import { ChangeDetectionStrategy, Component, computed, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed, effect, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SfTextareaComponent } from 'projects/ng-storefront-ui/src/lib/sf-textarea/sf-textarea.component';
 import { ExampleWrapperComponent } from '../../components/example-wrapper/example-wrapper.component';
 import { Controls } from '../../components/controls/controls.types';
 import { SfTextareaSize } from 'projects/ng-storefront-ui';
 import { ControlService } from '../../services/control.service';
-import { FormsModule } from '@angular/forms';
+import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @Component({
   standalone: true,
-  imports: [CommonModule, FormsModule, ExampleWrapperComponent, SfTextareaComponent],
+  imports: [
+    CommonModule,
+    FormsModule,
+    ExampleWrapperComponent,
+    ReactiveFormsModule,
+    SfTextareaComponent,
+  ],
   templateUrl: './example-sf-textarea-page.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
   providers: [ControlService],
 })
 export class ExampleSfTextareaPageComponent {
+  textareaControl = new FormControl('');
+
   characterLimit = signal(12);
 
-  textareaValue = signal('');
+  isAboveLimit = computed(() => (this.textareaControl.value || '').length > this.characterLimit());
 
-  isAboveLimit = computed(() => this.textareaValue().length > this.characterLimit());
-
-  charsCount = computed(() => this.characterLimit() - this.textareaValue().length);
+  charsCount = computed(() => this.characterLimit() - (this.textareaControl.value || '').length);
 
   characterLimitClass = computed(() =>
     this.isAboveLimit() ? 'text-negative-700 font-medium' : 'text-neutral-500'
@@ -100,12 +106,27 @@ export class ExampleSfTextareaPageComponent {
     errorText: 'Error message',
     label: 'Description',
     characterLimit: this.characterLimit(),
-    value: this.textareaValue(),
   });
 
-  constructor(private controlService: ControlService) {}
+  constructor(private controlService: ControlService) {
+    effect(() => {
+      if (this.prepareControlsData.state().invalid) {
+        this.textareaControl.markAsTouched();
+        this.textareaControl.setValidators(() => ({ example: true }));
+        this.textareaControl.setErrors({ example: true });
+      } else {
+        this.textareaControl.markAsPristine();
+        this.textareaControl.clearValidators();
+        this.textareaControl.setErrors(null);
+      }
+    });
 
-  handleValueChange(value: string) {
-    this.textareaValue.set(value);
+    effect(() => {
+      if (this.prepareControlsData.state().disabled) {
+        this.textareaControl.disable();
+      } else {
+        this.textareaControl.enable();
+      }
+    });
   }
 }

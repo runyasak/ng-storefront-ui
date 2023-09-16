@@ -10,19 +10,11 @@
     </span>
     <textarea
       sf-textarea
-      class="w-full"
+      class="w-full disabled:!bg-disabled-100 disabled:!ring-disabled-300 disabled:!ring-1 disabled:!text-disabled-500 read-only:!bg-disabled-100 read-only:!ring-disabled-300 read-only:!ring-1 read-only:!text-neutral-500"
+      [formControl]="textareaControl"
       [size]="prepareControlsData.state().size"
       [placeholder]="prepareControlsData.state().placeholder"
-      [disabled]="prepareControlsData.state().disabled"
-      [ngModel]="prepareControlsData.state().value"
-      [ngClass]="{
-        '!bg-disabled-100 !ring-disabled-300 !ring-1 !text-disabled-500':
-          prepareControlsData.state().disabled,
-        '!bg-disabled-100 !ring-disabled-300 !ring-1 !text-neutral-500':
-          prepareControlsData.state().readonly,
-        'ng-dirty ng-invalid': prepareControlsData.state().invalid
-      }"
-      (ngModelChange)="handleValueChange($event)"
+      [readOnly]="prepareControlsData.state().readonly"
     ></textarea>
   </label>
   <div class="flex justify-between">
