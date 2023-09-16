@@ -1,3 +1,0 @@
-:host.ng-touched.ng-invalid {
-  @apply ring-2 ring-negative-700;
-}
