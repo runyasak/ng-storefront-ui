@@ -89,6 +89,13 @@ export const routes: Routes = [
           ),
       },
       {
+        path: 'sf-select',
+        loadComponent: () =>
+          import('./pages/example-sf-select-page/example-sf-select-page.component').then(
+            (mod) => mod.ExampleSfSelectPageComponent
+          ),
+      },
+      {
         path: 'forms-showcase',
         data: {
           category: 'showcase',

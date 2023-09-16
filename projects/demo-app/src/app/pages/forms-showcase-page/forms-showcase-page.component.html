@@ -1,6 +1,12 @@
-<app-example-wrapper>
+<app-example-wrapper [hideControls]="true">
   <div class="flex flex-col gap-4">
     <sf-input [formControl]="inputControl" placeholder="Please input here"></sf-input>
     <textarea sf-textarea [formControl]="textareaControl"></textarea>
+    <sf-select [formControl]="selectControl">
+      <option value>Nothing</option>
+      <option value="red">Red</option>
+      <option value="blue">Blue</option>
+      <option value="green">Green</option>
+    </sf-select>
   </div>
 </app-example-wrapper>
