@@ -14,15 +14,13 @@ import { FormControl, ReactiveFormsModule } from '@angular/forms';
   providers: [ControlService],
 })
 export class ExampleSfInputPageComponent {
-  inputControl = new FormControl();
+  inputControl = new FormControl('');
 
   characterLimit = signal(12);
 
-  inputValue = signal('');
+  isAboveLimit = computed(() => (this.inputControl.value || '').length > this.characterLimit());
 
-  isAboveLimit = computed(() => this.inputValue().length > this.characterLimit());
-
-  charsCount = computed(() => this.characterLimit() - this.inputValue().length);
+  charsCount = computed(() => this.characterLimit() - (this.inputControl.value || '').length);
 
   characterLimitClass = computed(() =>
     this.isAboveLimit() ? 'text-negative-700 font-medium' : 'text-neutral-500'
@@ -101,7 +99,6 @@ export class ExampleSfInputPageComponent {
     errorText: 'Error text',
     label: 'Label',
     characterLimit: this.characterLimit(),
-    value: this.inputValue(),
   });
 
   constructor(private controlService: ControlService) {
@@ -124,9 +121,5 @@ export class ExampleSfInputPageComponent {
         this.inputControl.enable();
       }
     });
-  }
-
-  handleValueChange(value: string) {
-    this.inputValue.set(value);
   }
 }

@@ -12,15 +12,15 @@
       [size]="prepareControlsData.state().size"
       [placeholder]="prepareControlsData.state().placeholder"
       [formControl]="inputControl"
+      [readOnly]="prepareControlsData.state().readonly"
       [wrapperClass]="[
-        prepareControlsData.state().disabled
+        inputControl.disabled
           ? '!bg-disabled-100 !ring-disabled-300 !ring-1 !text-disabled-500'
           : '',
         prepareControlsData.state().readonly
           ? '!bg-disabled-100 !ring-disabled-300 !ring-1 !text-neutral-500'
           : ''
       ]"
-      (ngModelChange)="handleValueChange($event)"
     ></sf-input>
   </label>
   <div class="flex justify-between">

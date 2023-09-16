@@ -18,6 +18,7 @@ import { ControlValueAccessor, FormsModule, NG_VALUE_ACCESSOR } from '@angular/f
         class="min-w-[80px] w-full text-base outline-none appearance-none text-neutral-900 disabled:cursor-not-allowed disabled:bg-transparent read-only:bg-transparent"
         [ngModel]="value"
         [disabled]="disabled"
+        [readOnly]="readOnly"
         [size]="1"
         [type]="type"
         [placeholder]="placeholder"
@@ -49,6 +50,8 @@ export class SfInputComponent implements ControlValueAccessor {
   @Input() value: unknown = '';
 
   @Input() disabled: boolean = false;
+
+  @Input() readOnly: boolean = false;
 
   @Input() type: string = '';
 
