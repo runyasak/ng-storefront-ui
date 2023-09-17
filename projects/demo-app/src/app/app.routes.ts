@@ -96,6 +96,13 @@ export const routes: Routes = [
           ),
       },
       {
+        path: 'sf-checkbox',
+        loadComponent: () =>
+          import('./pages/example-sf-checkbox-page/example-sf-checkbox-page.component').then(
+            (mod) => mod.ExampleSfCheckboxPageComponent
+          ),
+      },
+      {
         path: 'forms-showcase',
         data: {
           category: 'showcase',
