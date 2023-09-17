@@ -67,13 +67,20 @@ const createSfIcon = (
     selector: '${selector}',
     standalone: true,
     imports: [CommonModule, SfIconBaseComponent],
-    template: \`<sf-icon-base [size]="size" viewBox="${attributes.viewBox}" data-testid="${attributes.dataTestId}">
+    template: \`<sf-icon-base
+      [size]="size"
+      viewBox="${attributes.viewBox}"
+      data-testid="${attributes.dataTestId}"
+      [svgClass]="svgClass"
+    >
       ${content}      
     </sf-icon-base>\`,
     changeDetection: ChangeDetectionStrategy.OnPush,
   })
   export class ${name}Component {
     @Input() size: keyof typeof SfIconSize = SfIconSize.base;
+
+    @Input() svgClass: string | string[] = '';
   }
 `;
 
@@ -135,7 +142,7 @@ import { CommonModule } from '@angular/common';
 import { ExampleWrapperComponent } from '../../components/example-wrapper/example-wrapper.component';
 import {
   SfIconBaseComponent,
-${sfIconSelectors.map((selector) => `  ${capitalize(camelize(selector))}Component`).join(`,\n`)}
+${sfIconSelectors.map((selector) => `  ${capitalize(camelize(selector))}Component`).join(`,\n`)},
 } from 'projects/ng-storefront-ui';
 
 @Component({
@@ -144,7 +151,7 @@ ${sfIconSelectors.map((selector) => `  ${capitalize(camelize(selector))}Componen
     CommonModule,
     ExampleWrapperComponent,
     SfIconBaseComponent,
-${sfIconSelectors.map((selector) => `    ${capitalize(camelize(selector))}Component`).join(`,\n`)}
+${sfIconSelectors.map((selector) => `    ${capitalize(camelize(selector))}Component`).join(`,\n`)},
   ],
   template: \`
     <app-example-wrapper [hideControls]="true">

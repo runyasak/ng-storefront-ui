@@ -14,7 +14,7 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "createIcons": "ts-node createIcons.ts",
+    "createIcons": "ts-node createIcons.ts && npx prettier projects/ng-storefront-ui/src/lib/sf-icons --write",
     "release": "standard-version",
     "build:demo": "ng build demo-app",
     "build:lib": "ng build ng-storefront-ui",
