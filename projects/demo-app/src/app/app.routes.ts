@@ -103,6 +103,13 @@ export const routes: Routes = [
           ),
       },
       {
+        path: 'sf-radio',
+        loadComponent: () =>
+          import('./pages/example-sf-radio-page/example-sf-radio-page.component').then(
+            (mod) => mod.ExampleSfRadioPageComponent
+          ),
+      },
+      {
         path: 'forms-showcase',
         data: {
           category: 'showcase',
