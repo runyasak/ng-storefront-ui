@@ -22,6 +22,7 @@ import { ControlValueAccessor, FormsModule, NG_VALUE_ACCESSOR } from '@angular/f
         [size]="1"
         [type]="type"
         [placeholder]="placeholder"
+        [required]="required"
         (blur)="onTouched($event)"
         (ngModelChange)="handleValueChange($event)"
       />
@@ -48,6 +49,8 @@ export class SfInputComponent implements ControlValueAccessor {
   @Input() size: keyof typeof SfInputSize = SfInputSize.base;
 
   @Input() value: unknown = '';
+
+  @Input() required: boolean = false;
 
   @Input() disabled: boolean = false;
 
