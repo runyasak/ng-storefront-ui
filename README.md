@@ -63,3 +63,57 @@ export default {
   plugins: [sfTypography],
 };
 ```
+
+# Theming
+
+Ng-Storefront UI supports theming that adheres to the Storefront UI standard. These themes can be customized using CSS variables or Tailwind configuration, ensuring they align seamlessly with your design system. You can see more information here, [Storefront UI Theming](https://docs.storefrontui.io/v2/vue/customization/theming.html#theming).
+
+## Customizing Colors
+
+### CSS Variables
+
+To customize colors with CSS variables, you can set variables as different color channels. This syntax is required for `Tailwind's opacity modifier` syntax to work.
+
+The CSS classes for Storefront UI colors follow the pattern of `--colors-{color}-{shade}`. For example, changing `primary-500` for light/dark themes might look like this.
+
+```css
+:root {
+  --colors-primary-500: 10 171 69;
+}
+
+/* this may change depending on how you implement dark mode */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --colors-primary-500: 240 253 244;
+  }
+}
+```
+
+### Tailwind Configuration
+
+If you don't need to support multiple themes, or if you'd prefer to use Tailwind variants to implement your themes, you can customize Storefront UI's colors inside of your Tailwind configuration.
+
+```ts
+export default {
+  //...
+  theme: {
+    extend: {
+      colors: {
+        primary: {
+          50: '#f5f9ff',
+          100: '#e9f3ff',
+          200: '#c8e0ff',
+          300: '#a6ccff',
+          400: '#6ea1ff',
+          500: '#3375ff',
+          600: '#2e6ae6',
+          700: '#264ebf',
+          800: '#1d3f99',
+          900: '#132f72',
+        },
+      },
+    },
+  },
+  //...
+};
+```
