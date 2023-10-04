@@ -20,14 +20,6 @@ All notable changes to this project will be documented in this file. See [standa
 - update form field `ng-invalid`` styles ([d356003](https://github.com/runyasak/ng-storefront-ui/commit/d356003733676192144e4be2c8b337deb90a8484))
 - update `tailwind.config` font ([1c8a771](https://github.com/runyasak/ng-storefront-ui/commit/1c8a7712358d52a097eb4519a1e65a58bd4f8329))
 
-### [0.0.10-alpha.0](https://github.com/runyasak/ng-storefront-ui/compare/v0.0.9...v0.0.10-alpha.0) (2023-09-06)
-
-### Features
-
-- **sf-icon-arrow-forward:** new component ([e3306e8](https://github.com/runyasak/ng-storefront-ui/commit/e3306e8383c26176dbdceaddd8f61425b114dea2))
-- **sf-loader-circular:** new component ([8dc5ac3](https://github.com/runyasak/ng-storefront-ui/commit/8dc5ac3051e98d79e4667db7df1f119828cfc28d))
-- **sf-textarea:** new component ([b958516](https://github.com/runyasak/ng-storefront-ui/commit/b958516d815f707a4595afaac4e4e6d65fc187ed))
-
 ### Bug Fixes
 
 - **demo:** update example-sf-icon-base-page viewBox ([698d39e](https://github.com/runyasak/ng-storefront-ui/commit/698d39ee282778cb23aa8de6c262baf0c0d1635f))
