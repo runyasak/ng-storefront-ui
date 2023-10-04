@@ -2,6 +2,42 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.11](https://github.com/runyasak/ng-storefront-ui/compare/v0.0.10...v0.0.11) (2023-10-04)
+
+
+### Features
+
+* create sf-icons ([#4](https://github.com/runyasak/ng-storefront-ui/issues/4)) ([7f6c76f](https://github.com/runyasak/ng-storefront-ui/commit/7f6c76f8aee063af08802d78d9cd45e3b580cfc7))
+* **sf-checkbox:** new component ([#7](https://github.com/runyasak/ng-storefront-ui/issues/7)) ([350744f](https://github.com/runyasak/ng-storefront-ui/commit/350744f31b9a106153f6bfe369a1ccf3a8a0e829))
+* **sf-icon-base:** add svgClass ([553f683](https://github.com/runyasak/ng-storefront-ui/commit/553f683fe935c9c08a2d0ca4972d7a880f314f32))
+* **sf-input:** add readOnly ([fa5fd5f](https://github.com/runyasak/ng-storefront-ui/commit/fa5fd5fff87c7aec6409fc6c352a8f03cc4c8c34))
+* **sf-input:** add rerquired ([6b7c444](https://github.com/runyasak/ng-storefront-ui/commit/6b7c444cc11ac4ed360dfc9e43526bdbc81ca7c5))
+* **sf-input:** new component ([08f75a2](https://github.com/runyasak/ng-storefront-ui/commit/08f75a206338dff9751dd2bed5be2acd8ee13995))
+* **sf-radio:** new component ([#8](https://github.com/runyasak/ng-storefront-ui/issues/8)) ([81f94e2](https://github.com/runyasak/ng-storefront-ui/commit/81f94e2c49c4196cac6d8c04414924e5064e70cc))
+* **sf-select:** new component ([#6](https://github.com/runyasak/ng-storefront-ui/issues/6)) ([0279338](https://github.com/runyasak/ng-storefront-ui/commit/02793382843936cfd7fdb684942c7f426d9015d7))
+
+
+### Bug Fixes
+
+* **sf-input:** add wrapperClass instead hostBinding ([c0bd11b](https://github.com/runyasak/ng-storefront-ui/commit/c0bd11b14c000af87d1bedb535407b37c55624f2))
+* **sf-input:** update ng-invalid style ([f23432d](https://github.com/runyasak/ng-storefront-ui/commit/f23432df339a74a96fa8a3ccf5746df448e6be6a))
+* update form-field ng-invalid styles ([d356003](https://github.com/runyasak/ng-storefront-ui/commit/d356003733676192144e4be2c8b337deb90a8484))
+* update tailwind.config font ([1c8a771](https://github.com/runyasak/ng-storefront-ui/commit/1c8a7712358d52a097eb4519a1e65a58bd4f8329))
+
+### [0.0.10-alpha.0](https://github.com/runyasak/ng-storefront-ui/compare/v0.0.9...v0.0.10-alpha.0) (2023-09-06)
+
+
+### Features
+
+* **sf-icon-arrow-forward:** new component ([e3306e8](https://github.com/runyasak/ng-storefront-ui/commit/e3306e8383c26176dbdceaddd8f61425b114dea2))
+* **sf-loader-circular:** new component ([8dc5ac3](https://github.com/runyasak/ng-storefront-ui/commit/8dc5ac3051e98d79e4667db7df1f119828cfc28d))
+* **sf-textarea:** new component ([b958516](https://github.com/runyasak/ng-storefront-ui/commit/b958516d815f707a4595afaac4e4e6d65fc187ed))
+
+
+### Bug Fixes
+
+* **demo:** update example-sf-icon-base-page viewBox ([698d39e](https://github.com/runyasak/ng-storefront-ui/commit/698d39ee282778cb23aa8de6c262baf0c0d1635f))
+
 ### [0.0.10](https://github.com/runyasak/ng-storefront-ui/compare/v0.0.9...v0.0.10) (2023-09-09)
 
 ### [0.0.10-alpha.0](https://github.com/runyasak/ng-storefront-ui/compare/v0.0.9...v0.0.10-alpha.0) (2023-09-06)
