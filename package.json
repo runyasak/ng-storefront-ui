@@ -1,6 +1,6 @@
 {
   "name": "@ng-storefront-ui/workspace",
-  "version": "0.0.10",
+  "version": "0.0.12",
   "repository": {
     "type": "git",
     "url": "https://github.com/runyasak/ng-storefront-ui",
@@ -14,6 +14,7 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
+    "createIcons": "ts-node createIcons.ts && npx prettier projects/ng-storefront-ui/src/lib/sf-icons --write",
     "release": "standard-version",
     "build:demo": "ng build demo-app",
     "build:lib": "ng build ng-storefront-ui",
@@ -43,6 +44,7 @@
     "@schematics/angular": "^16.2.0",
     "@types/jasmine": "~4.3.0",
     "@types/mertasan__tailwindcss-variables": "^2.6.0",
+    "@types/node": "^20.6.0",
     "autoprefixer": "^10.4.15",
     "eslint-config-prettier": "^9.0.0",
     "eslint-plugin-prettier": "^5.0.0",
@@ -58,7 +60,9 @@
     "postcss": "^8.4.28",
     "prettier": "^3.0.2",
     "prettier-eslint": "^15.0.1",
+    "svgo": "^3.0.2",
     "tailwindcss": "^3.3.3",
+    "ts-node": "^10.9.1",
     "typescript": "~5.1.3"
   },
   "engines": {

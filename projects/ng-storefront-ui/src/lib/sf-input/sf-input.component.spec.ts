@@ -18,4 +18,15 @@ describe('SfInputComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should render `Hello World` on placeholder', () => {
+    fixture.componentRef.setInput('placeholder', 'Hello World');
+    fixture.detectChanges();
+
+    const inputField = fixture.debugElement.nativeElement.querySelector(
+      `[data-testid='input-field']`
+    );
+
+    expect(inputField.placeholder).toMatch(/Hello World/);
+  });
 });

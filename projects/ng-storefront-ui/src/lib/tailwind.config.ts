@@ -114,10 +114,6 @@ export const tailwindConfig: Config = {
           '50': 'rgb(var(--colors-disabled-50) / 0.5)',
         },
       },
-      fontFamily: {
-        headings: 'Red Hat Display, sans-serif',
-        body: 'Red Hat Text, sans-serif',
-      },
       screens: {
         xs: '376px',
         sm: '640px',

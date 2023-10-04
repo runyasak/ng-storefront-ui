@@ -1,10 +1,12 @@
 import { ChangeDetectionStrategy, Component, HostBinding, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SfRatingSize } from '../../types/sf-rating.type';
-import { SfIconStarFilledComponent } from '../sf-icons/sf-icon-star-filled/sf-icon-star-filled.component';
-import { SfIconStarHalfComponent } from '../sf-icons/sf-icon-star-half/sf-icon-star-half.component';
-import { SfIconStarComponent } from '../sf-icons/sf-icon-star/sf-icon-star.component';
 import { clamp, roundToNearest } from '../../../utils/rating.utils';
+import {
+  SfIconStarComponent,
+  SfIconStarFilledComponent,
+  SfIconStarHalfComponent,
+} from '../sf-icons';
 
 const sizeClasses = {
   [SfRatingSize.xs]: 'text-xs',
@@ -21,12 +23,19 @@ const sizeClasses = {
   template: `
     <sf-icon-star-filled
       *ngFor="let index of counter(filled)"
+      data-testid="star-filled"
       aria-hidden="true"
       class="w-[1.5em] h-[1.5em]"
     />
-    <sf-icon-star-half *ngIf="partiallyFilled" aria-hidden="true" class="w-[1.5em] h-[1.5em]" />
+    <sf-icon-star-half
+      *ngIf="partiallyFilled"
+      data-testid="star-half"
+      aria-hidden="true"
+      class="w-[1.5em] h-[1.5em]"
+    />
     <sf-icon-star
       *ngFor="let index of counter(empty)"
+      data-testid="star"
       aria-hidden="true"
       class="text-disabled-500 w-[1.5em] h-[1.5em]"
     />

@@ -33,7 +33,7 @@
             </ng-container>
 
             <ng-template #booleanControl>
-              <div *ngIf="control.type === 'boolean'; else rangeControl" class="switch-wrapper">
+              <div *ngIf="control.type === 'boolean'; else jsonControl" class="switch-wrapper">
                 <label class="switch">
                   <input
                     [ngModel]="state()[control.modelName]"
@@ -45,6 +45,18 @@
                 </label>
                 <span class="ml-2">{{ state()[control.modelName] }}</span>
               </div>
+            </ng-template>
+
+            <ng-template #jsonControl>
+              <textarea
+                *ngIf="control.type === 'json'; else rangeControl"
+                rows="10"
+                [ngModel]="stringifyValue(state()[control.modelName])"
+                [name]="control.modelName + ' ' + index"
+                [attr.aria-labelledby]="control.modelName"
+                (ngModelChange)="handleControlChange($event, control.modelName)"
+              >
+              </textarea>
             </ng-template>
 
             <ng-template #rangeControl>

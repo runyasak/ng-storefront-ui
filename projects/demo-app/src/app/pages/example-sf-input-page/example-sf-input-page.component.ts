@@ -1,26 +1,26 @@
-import { ChangeDetectionStrategy, Component, computed, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed, effect, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ExampleWrapperComponent } from '../../components/example-wrapper/example-wrapper.component';
 import { SfInputComponent, SfInputSize } from 'projects/ng-storefront-ui';
 import { ControlService } from '../../services/control.service';
 import { Controls } from '../../components/controls/controls.types';
-import { FormsModule } from '@angular/forms';
+import { FormControl, ReactiveFormsModule } from '@angular/forms';
 
 @Component({
   standalone: true,
-  imports: [CommonModule, FormsModule, ExampleWrapperComponent, SfInputComponent],
+  imports: [CommonModule, ExampleWrapperComponent, ReactiveFormsModule, SfInputComponent],
   templateUrl: './example-sf-input-page.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
   providers: [ControlService],
 })
 export class ExampleSfInputPageComponent {
+  inputControl = new FormControl('');
+
   characterLimit = signal(12);
 
-  inputValue = signal('');
+  isAboveLimit = computed(() => (this.inputControl.value || '').length > this.characterLimit());
 
-  isAboveLimit = computed(() => this.inputValue().length > this.characterLimit());
-
-  charsCount = computed(() => this.characterLimit() - this.inputValue().length);
+  charsCount = computed(() => this.characterLimit() - (this.inputControl.value || '').length);
 
   characterLimitClass = computed(() =>
     this.isAboveLimit() ? 'text-negative-700 font-medium' : 'text-neutral-500'
@@ -99,13 +99,27 @@ export class ExampleSfInputPageComponent {
     errorText: 'Error text',
     label: 'Label',
     characterLimit: this.characterLimit(),
-    value: this.inputValue(),
   });
 
-  constructor(private controlService: ControlService) {}
+  constructor(private controlService: ControlService) {
+    effect(() => {
+      if (this.prepareControlsData.state().invalid) {
+        this.inputControl.markAsTouched();
+        this.inputControl.setValidators(() => ({ example: true }));
+        this.inputControl.setErrors({ example: true });
+      } else {
+        this.inputControl.markAsPristine();
+        this.inputControl.clearValidators();
+        this.inputControl.setErrors(null);
+      }
+    });
 
-  handleValueChange(value: string) {
-    console.log(this.characterLimit(), this.prepareControlsData.state().characterLimit);
-    this.inputValue.set(value);
+    effect(() => {
+      if (this.prepareControlsData.state().disabled) {
+        this.inputControl.disable();
+      } else {
+        this.inputControl.enable();
+      }
+    });
   }
 }

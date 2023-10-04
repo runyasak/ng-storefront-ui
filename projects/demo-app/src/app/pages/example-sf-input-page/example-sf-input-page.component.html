@@ -9,25 +9,24 @@
       {{ prepareControlsData.state().label }}
     </span>
     <sf-input
-      class="w-full"
       [size]="prepareControlsData.state().size"
       [placeholder]="prepareControlsData.state().placeholder"
-      [ngModel]="prepareControlsData.state().value"
-      [disabled]="prepareControlsData.state().disabled"
-      [ngClass]="{
-        '!bg-disabled-100 !ring-disabled-300 !ring-1 !text-disabled-500':
-          prepareControlsData.state().disabled,
-        '!bg-disabled-100 !ring-disabled-300 !ring-1 !text-neutral-500':
-          prepareControlsData.state().readonly,
-        'ng-dirty ng-invalid': prepareControlsData.state().invalid
-      }"
-      (ngModelChange)="handleValueChange($event)"
+      [formControl]="inputControl"
+      [readOnly]="prepareControlsData.state().readonly"
+      [wrapperClass]="[
+        inputControl.disabled
+          ? '!bg-disabled-100 !ring-disabled-300 !ring-1 !text-disabled-500'
+          : '',
+        prepareControlsData.state().readonly
+          ? '!bg-disabled-100 !ring-disabled-300 !ring-1 !text-neutral-500'
+          : ''
+      ]"
     ></sf-input>
   </label>
   <div class="flex justify-between">
     <div>
       <p
-        *ngIf="prepareControlsData.state().invalid && !prepareControlsData.state().disabled"
+        *ngIf="inputControl.invalid && !inputControl.disabled"
         class="typography-text-sm text-negative-700 font-medium mt-0.5"
       >
         {{ prepareControlsData.state().errorText }}
@@ -58,4 +57,6 @@
       {{ charsCount() }}
     </p>
   </div>
+
+  <div class="flex pt-4 gap-4">Form value: {{ inputControl.value }}</div>
 </app-example-wrapper>

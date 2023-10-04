@@ -89,6 +89,27 @@ export const routes: Routes = [
           ),
       },
       {
+        path: 'sf-select',
+        loadComponent: () =>
+          import('./pages/example-sf-select-page/example-sf-select-page.component').then(
+            (mod) => mod.ExampleSfSelectPageComponent
+          ),
+      },
+      {
+        path: 'sf-checkbox',
+        loadComponent: () =>
+          import('./pages/example-sf-checkbox-page/example-sf-checkbox-page.component').then(
+            (mod) => mod.ExampleSfCheckboxPageComponent
+          ),
+      },
+      {
+        path: 'sf-radio',
+        loadComponent: () =>
+          import('./pages/example-sf-radio-page/example-sf-radio-page.component').then(
+            (mod) => mod.ExampleSfRadioPageComponent
+          ),
+      },
+      {
         path: 'forms-showcase',
         data: {
           category: 'showcase',
@@ -97,6 +118,17 @@ export const routes: Routes = [
         loadComponent: () =>
           import('./pages/forms-showcase-page/forms-showcase-page.component').then(
             (mod) => mod.FormsShowcasePageComponent
+          ),
+      },
+      {
+        path: 'icons-showcase',
+        data: {
+          category: 'showcase',
+          sidebarLabel: 'Icons',
+        },
+        loadComponent: () =>
+          import('./pages/icons-showcase-page/icons-showcase-page.component').then(
+            (mod) => mod.IconsShowcasePageComponent
           ),
       },
     ],

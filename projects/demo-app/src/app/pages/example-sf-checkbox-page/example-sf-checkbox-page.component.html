@@ -1,0 +1,13 @@
+<app-example-wrapper [controls]="controls" [state]="prepareControlsData.state">
+  <div class="flex items-center">
+    <sf-checkbox [formControl]="checkboxControl" inputId="checkbox" />
+    <label
+      for="checkbox"
+      class="ml-3 text-base text-gray-900 cursor-pointer font-body peer-disabled:text-disabled-900"
+    >
+      Label
+    </label>
+  </div>
+
+  <div class="flex pt-4 gap-4">Form value: {{ checkboxControl.value }}</div>
+</app-example-wrapper>

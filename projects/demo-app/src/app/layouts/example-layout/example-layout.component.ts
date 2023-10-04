@@ -59,8 +59,9 @@ export class ExampleLayoutComponent implements OnInit {
       .filter((value) => value.path === '')[0]
       .children?.filter(
         (value) =>
-          !!value.path ||
-          (value.data && (!value.data['category'] || value.data['category'] === 'component'))
+          !!value.path &&
+          (!value.data ||
+            (value.data && (!value.data['category'] || value.data['category'] === 'component')))
       )
       .map((value) => ({
         name: value.path?.split('-').slice(1).join(' ') || '',

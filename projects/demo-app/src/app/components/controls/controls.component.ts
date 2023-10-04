@@ -19,4 +19,8 @@ export class ControlsComponent {
   handleControlChange(newValue: unknown, modelName: string) {
     this.state.update((value) => ({ ...value, [modelName]: newValue }));
   }
+
+  stringifyValue(value: unknown) {
+    return JSON.stringify(value, undefined, 2);
+  }
 }

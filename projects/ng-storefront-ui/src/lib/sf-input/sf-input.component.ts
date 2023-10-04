@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, HostBinding, Input, forwardRef } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input, forwardRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SfInputSize } from '../../types';
 import { ControlValueAccessor, FormsModule, NG_VALUE_ACCESSOR } from '@angular/forms';
@@ -8,20 +8,34 @@ import { ControlValueAccessor, FormsModule, NG_VALUE_ACCESSOR } from '@angular/f
   standalone: true,
   imports: [CommonModule, FormsModule],
   template: `
-    <ng-content select="[prefix]" />
-    <input
-      data-testid="input-field"
-      class="min-w-[80px] w-full text-base outline-none appearance-none text-neutral-900 disabled:cursor-not-allowed disabled:bg-transparent read-only:bg-transparent"
-      [ngModel]="value"
-      [disabled]="disabled"
-      [size]="1"
-      [type]="type"
-      [placeholder]="placeholder"
-      (ngModelChange)="handleValueChange($event)"
-    />
-    <ng-content select="[suffix]" />
+    <span
+      class="flex items-center gap-2 px-4 bg-white rounded-md ring-1 text-neutral-500 hover:ring-primary-700 focus-within:caret-primary-700 active:caret-primary-700 active:ring-primary-700 active:ring-2 focus-within:ring-primary-700 focus-within:ring-2 ring-neutral-200"
+      [ngClass]="[sizeClasses[this.size], wrapperClassString]"
+    >
+      <ng-content select="[prefix]" />
+      <input
+        data-testid="input-field"
+        class="min-w-[80px] w-full text-base outline-none appearance-none text-neutral-900 disabled:cursor-not-allowed disabled:bg-transparent read-only:bg-transparent"
+        [ngModel]="value"
+        [disabled]="disabled"
+        [readOnly]="readOnly"
+        [size]="1"
+        [type]="type"
+        [placeholder]="placeholder"
+        [required]="required"
+        (blur)="onTouched($event)"
+        (ngModelChange)="handleValueChange($event)"
+      />
+      <ng-content select="[suffix]" />
+    </span>
   `,
-  styleUrls: ['../../../styles/form-fields.css'],
+  styles: [
+    `
+      :host.ng-touched.ng-invalid > span {
+        @apply ring-2 ring-negative-700;
+      }
+    `,
+  ],
   changeDetection: ChangeDetectionStrategy.OnPush,
   providers: [
     {
@@ -36,11 +50,17 @@ export class SfInputComponent implements ControlValueAccessor {
 
   @Input() value: unknown = '';
 
+  @Input() required: boolean = false;
+
   @Input() disabled: boolean = false;
+
+  @Input() readOnly: boolean = false;
 
   @Input() type: string = '';
 
   @Input() placeholder: string = '';
+
+  @Input() wrapperClass: string | string[] = '';
 
   @Input() onChange: (value: unknown) => void = () => {};
 
@@ -52,11 +72,8 @@ export class SfInputComponent implements ControlValueAccessor {
     [SfInputSize.lg]: 'h-[48px]',
   };
 
-  @HostBinding('class') get hostClass() {
-    return [
-      'flex items-center gap-2 px-4 bg-white rounded-md ring-1 text-neutral-500 hover:ring-primary-700 focus-within:caret-primary-700 active:caret-primary-700 active:ring-primary-700 active:ring-2 focus-within:ring-primary-700 focus-within:ring-2 ring-1 ring-neutral-200',
-      this.sizeClasses[this.size],
-    ].join(' ');
+  get wrapperClassString() {
+    return Array.isArray(this.wrapperClass) ? this.wrapperClass.join(' ') : this.wrapperClass;
   }
 
   handleValueChange(value: string) {

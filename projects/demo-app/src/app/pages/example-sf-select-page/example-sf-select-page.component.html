@@ -1,0 +1,23 @@
+<app-example-wrapper [controls]="controls" [state]="prepareControlsData.state">
+  <label>
+    <span
+      class="pb-1 text-sm font-body font-medium"
+      [ngClass]="{
+        'after:content-[\'*\']': prepareControlsData.state().required,
+        'text-disabled-500 cursor-not-allowed': prepareControlsData.state().disabled
+      }"
+    >
+      {{ prepareControlsData.state().label }}
+    </span>
+    <sf-select
+      [formControl]="selectControl"
+      [placeholder]="prepareControlsData.state().placeholder"
+      [required]="prepareControlsData.state().required"
+      [size]="prepareControlsData.state().size"
+    >
+      <option *ngFor="let option of prepareControlsData.state().options" [value]="option.value">
+        {{ option.label }}
+      </option>
+    </sf-select>
+  </label>
+</app-example-wrapper>
