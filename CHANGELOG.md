@@ -19,9 +19,6 @@ All notable changes to this project will be documented in this file. See [standa
 - **sf-input:** update `ng-invalid` style ([f23432d](https://github.com/runyasak/ng-storefront-ui/commit/f23432df339a74a96fa8a3ccf5746df448e6be6a))
 - update form field `ng-invalid`` styles ([d356003](https://github.com/runyasak/ng-storefront-ui/commit/d356003733676192144e4be2c8b337deb90a8484))
 - update `tailwind.config` font ([1c8a771](https://github.com/runyasak/ng-storefront-ui/commit/1c8a7712358d52a097eb4519a1e65a58bd4f8329))
-
-### Bug Fixes
-
 - **demo:** update example-sf-icon-base-page viewBox ([698d39e](https://github.com/runyasak/ng-storefront-ui/commit/698d39ee282778cb23aa8de6c262baf0c0d1635f))
 
 ### [0.0.10](https://github.com/runyasak/ng-storefront-ui/compare/v0.0.9...v0.0.10) (2023-09-09)
