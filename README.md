@@ -29,7 +29,7 @@ export default <Config>{
 
 - To resolve warning from `"@mertasan/tailwindcss-variables" CommonJS or AMD dependencies can cause optimization bailouts`. Please add `allowedCommonJsDependencies` with depency to `angular.json`.
 
-```json
+```ts
 // angular.json
 {
   "architect": {
