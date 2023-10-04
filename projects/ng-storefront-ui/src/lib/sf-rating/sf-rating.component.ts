@@ -98,7 +98,6 @@ export class SfRatingComponent {
   @HostBinding('attr.role') role = 'image';
 
   counter(length: number) {
-    console.log(length);
     return new Array(length);
   }
 }
