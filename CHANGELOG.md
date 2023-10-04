@@ -4,8 +4,6 @@ All notable changes to this project will be documented in this file. See [standa
 
 ### [0.0.12](https://github.com/runyasak/ng-storefront-ui/compare/v0.0.11...v0.0.12) (2023-10-04)
 
-### [0.0.11](https://github.com/runyasak/ng-storefront-ui/compare/v0.0.10...v0.0.11) (2023-10-04)
-
 ### Features
 
 - **sf-icons:** add tons of icons from [Storefront UI](https://docs.storefrontui.io/v2/vue/components/iconbase.html) ([#4](https://github.com/runyasak/ng-storefront-ui/issues/4)) ([7f6c76f](https://github.com/runyasak/ng-storefront-ui/commit/7f6c76f8aee063af08802d78d9cd45e3b580cfc7))

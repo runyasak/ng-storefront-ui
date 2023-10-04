@@ -34,12 +34,10 @@ export default <Config>{
 {
   "architect": {
     "build": {
-      ...
+      // ...
       "options": {
-        ...
-        "allowedCommonJsDependencies": [
-          "@mertasan/tailwindcss-variables"
-        ]
+        // ...
+        "allowedCommonJsDependencies": ["@mertasan/tailwindcss-variables"]
       }
     }
   }
