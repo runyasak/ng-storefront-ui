@@ -35,7 +35,7 @@ describe('SfRatingComponent', () => {
     fixture.detectChanges();
 
     const filledStars = fixture.debugElement.nativeElement.querySelectorAll(
-      `[data-testid='star-filled']`
+      `[data-testid='rating-star-filled']`
     );
 
     expect(filledStars.length).toEqual(4);
@@ -47,7 +47,7 @@ describe('SfRatingComponent', () => {
     fixture.detectChanges();
 
     const filledStars = fixture.debugElement.nativeElement.querySelectorAll(
-      `[data-testid='star-filled']`
+      `[data-testid='rating-star-filled']`
     );
 
     const halfStar =

@@ -23,19 +23,19 @@ const sizeClasses = {
   template: `
     <sf-icon-star-filled
       *ngFor="let index of counter(filled)"
-      data-testid="star-filled"
+      data-testid="rating-star-filled"
       aria-hidden="true"
       class="w-[1.5em] h-[1.5em]"
     />
     <sf-icon-star-half
       *ngIf="partiallyFilled"
-      data-testid="star-half"
+      data-testid="rating-star-half"
       aria-hidden="true"
       class="w-[1.5em] h-[1.5em]"
     />
     <sf-icon-star
       *ngFor="let index of counter(empty)"
-      data-testid="star"
+      data-testid="rating-star"
       aria-hidden="true"
       class="text-disabled-500 w-[1.5em] h-[1.5em]"
     />
@@ -98,6 +98,7 @@ export class SfRatingComponent {
   @HostBinding('attr.role') role = 'image';
 
   counter(length: number) {
+    console.log(length);
     return new Array(length);
   }
 }
