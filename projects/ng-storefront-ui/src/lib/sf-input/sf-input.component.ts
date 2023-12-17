@@ -9,13 +9,13 @@ import { ControlValueAccessor, FormsModule, NG_VALUE_ACCESSOR } from '@angular/f
   imports: [CommonModule, FormsModule],
   template: `
     <span
-      class="flex items-center gap-2 px-4 bg-white rounded-md ring-1 text-neutral-500 hover:ring-primary-700 focus-within:caret-primary-700 active:caret-primary-700 active:ring-primary-700 active:ring-2 focus-within:ring-primary-700 focus-within:ring-2 ring-neutral-200"
+      class="flex items-center gap-2 rounded-md bg-white px-4 text-neutral-500 ring-1 ring-neutral-200 focus-within:caret-primary-700 focus-within:ring-2 focus-within:ring-primary-700 hover:ring-primary-700 active:caret-primary-700 active:ring-2 active:ring-primary-700"
       [ngClass]="[sizeClasses[this.size], wrapperClassString]"
     >
       <ng-content select="[prefix]" />
       <input
         data-testid="input-field"
-        class="min-w-[80px] w-full text-base outline-none appearance-none text-neutral-900 disabled:cursor-not-allowed disabled:bg-transparent read-only:bg-transparent"
+        class="w-full min-w-[80px] appearance-none text-base text-neutral-900 outline-none read-only:bg-transparent disabled:cursor-not-allowed disabled:bg-transparent"
         [ngModel]="value"
         [disabled]="disabled"
         [readOnly]="readOnly"

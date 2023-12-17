@@ -8,25 +8,25 @@
     (click)="handleClick()"
     (keypress)="handleClick()"
   >
-    <sf-icon-tune
-      *ngIf="prepareControlsData.state().slotPrefix === 'Tune icon'"
-      prefix
-    ></sf-icon-tune>
+    @if (prepareControlsData.state().slotPrefix === 'Tune icon') {
+      <sf-icon-tune prefix></sf-icon-tune>
+    }
 
     <span class="bread-words flex gap-2">
       {{ prepareControlsData.state().label }}
-      <sf-counter
-        *ngIf="prepareControlsData.state().counter"
-        class="font-normal"
-        [ngClass]="{ '!text-disabled-500': prepareControlsData.state().disabled }"
-        [size]="prepareControlsData.state().size === 'sm' ? 'sm' : 'base'"
-      >
-        {{ prepareControlsData.state().counter }}
-      </sf-counter>
+      @if (prepareControlsData.state().counter) {
+        <sf-counter
+          class="font-normal"
+          [ngClass]="{ '!text-disabled-500': prepareControlsData.state().disabled }"
+          [size]="prepareControlsData.state().size === 'sm' ? 'sm' : 'base'"
+        >
+          {{ prepareControlsData.state().counter }}
+        </sf-counter>
+      }
     </span>
 
     <p
-      class="text-xs font-normal break-words text-neutral-500"
+      class="break-words text-xs font-normal text-neutral-500"
       [ngClass]="{
         truncate: prepareControlsData.state().truncate,
         '!text-disabled-500': prepareControlsData.state().disabled
@@ -35,9 +35,8 @@
       {{ prepareControlsData.state().secondaryText }}
     </p>
 
-    <sf-icon-chevron-right
-      *ngIf="prepareControlsData.state().slotSuffix === 'Chevron right icon'"
-      suffix
-    />
+    @if (prepareControlsData.state().slotSuffix === 'Chevron right icon') {
+      <sf-icon-chevron-right suffix />
+    }
   </li>
 </app-example-wrapper>

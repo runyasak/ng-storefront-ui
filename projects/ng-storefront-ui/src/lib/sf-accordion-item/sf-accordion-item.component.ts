@@ -11,7 +11,7 @@ import { FormsModule } from '@angular/forms';
       <summary
         [ngClass]="[
           summaryClass,
-          'list-none [&::-webkit-details-marker]:hidden cursor-pointer focus-visible:outline focus-visible:outline-offset focus-visible:rounded-sm'
+          'cursor-pointer list-none focus-visible:rounded-sm focus-visible:outline focus-visible:outline-offset [&::-webkit-details-marker]:hidden'
         ]"
         (click)="$event.preventDefault(); ngModelChange.next(!ngModel)"
       >

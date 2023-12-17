@@ -10,7 +10,7 @@ import { ControlValueAccessor, FormsModule, NG_VALUE_ACCESSOR } from '@angular/f
     [id]="inputId"
     [ngModel]="value"
     [disabled]="disabled"
-    class="h-[18px] min-w-[18px] border-2 rounded-sm appearance-none cursor-pointer text-gray-500 hover:indeterminate:text-primary-800 enabled:active:checked:text-primary-900 checked:text-primary-700 checked:bg-checked-checkbox-current border-current indeterminate:bg-indeterminate-checkbox-current indeterminate:text-primary-700 disabled:text-gray-300 hover:text-gray-300 disabled:cursor-not-allowed enabled:hover:border-primary-800 enabled:active:border-primary-900 enabled:hover:checked:text-primary-800 enabled:hover:indeterminate:text-primary-800 enabled:checked:text-primary-700 enabled:indeterminate:text-primary-700 enabled:focus-visible:outline enabled:focus-visible:outline-offset"
+    class="h-[18px] min-w-[18px] cursor-pointer appearance-none rounded-sm border-2 border-current text-gray-500 checked:bg-checked-checkbox-current checked:text-primary-700 indeterminate:bg-indeterminate-checkbox-current indeterminate:text-primary-700 hover:text-gray-300 hover:indeterminate:text-primary-800 enabled:checked:text-primary-700 enabled:indeterminate:text-primary-700 enabled:hover:border-primary-800 enabled:hover:checked:text-primary-800 enabled:hover:indeterminate:text-primary-800 enabled:focus-visible:outline enabled:focus-visible:outline-offset enabled:active:border-primary-900 enabled:active:checked:text-primary-900 disabled:cursor-not-allowed disabled:text-gray-300"
     [ngClass]="inputClass"
     type="checkbox"
     data-testid="checkbox"
@@ -21,7 +21,7 @@ import { ControlValueAccessor, FormsModule, NG_VALUE_ACCESSOR } from '@angular/f
   styles: [
     `
       :host.ng-touched.ng-invalid > input {
-        @apply border-negative-700 enabled:hover:border-negative-800 enabled:active:border-negative-900 indeterminate:bg-none;
+        @apply border-negative-700 indeterminate:bg-none enabled:hover:border-negative-800 enabled:active:border-negative-900;
       }
     `,
   ],

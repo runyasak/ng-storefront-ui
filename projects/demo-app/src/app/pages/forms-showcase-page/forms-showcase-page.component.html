@@ -1,61 +1,52 @@
 <app-example-wrapper [hideControls]="true">
   <div class="container mx-auto p-6">
-    <h1 class="mb-4 typography-headline-4 font-bold">Personal information</h1>
+    <h1 class="mb-4 font-bold typography-headline-4">Personal information</h1>
 
     <form class="flex flex-col gap-6" [formGroup]="submitForm">
       <label class="flex flex-col gap-4">
-        <span class="typography-label-sm font-medium">Username *</span>
+        <span class="font-medium typography-label-sm">Username *</span>
         <sf-input formControlName="username" [required]="true" />
-        <p
-          *ngIf="submitForm.controls['username'].touched && submitForm.controls['username'].errors"
-          class="text-negative-700 typography-text-sm font-medium"
-        >
-          The field cannot be empty
-        </p>
+        @if (submitForm.controls['username'].touched && submitForm.controls['username'].errors) {
+          <p class="font-medium text-negative-700 typography-text-sm">The field cannot be empty</p>
+        }
       </label>
 
       <label class="flex flex-col gap-4">
-        <span class="typography-label-sm font-medium">Email *</span>
+        <span class="font-medium typography-label-sm">Email *</span>
         <sf-input formControlName="email" [required]="true">
           <sf-icon-email prefix />
         </sf-input>
-        <p
-          *ngIf="
-            submitForm.controls['email'].touched &&
-            submitForm.controls['email'].hasError('required')
-          "
-          class="text-negative-700 typography-text-sm font-medium"
-        >
-          The field cannot be empty
-        </p>
-        <p
-          *ngIf="
-            submitForm.controls['email'].touched && submitForm.controls['email'].hasError('email')
-          "
-          class="text-negative-700 typography-text-sm font-medium"
-        >
-          Your email is invalid form
-        </p>
+        @if (submitForm.controls['email'].touched) {
+          <p class="font-medium text-negative-700 typography-text-sm">
+            @if (submitForm.controls['email'].hasError('required')) {
+              The field cannot be empty
+            } @else if (submitForm.controls['email'].hasError('email')) {
+              Your email is invalid form
+            }
+          </p>
+        }
       </label>
 
       <label class="flex flex-col gap-4">
-        <span class="typography-label-sm font-medium">Website</span>
+        <span class="font-medium typography-label-sm">Website</span>
         <sf-input formControlName="website">
           <span prefix>https://</span>
         </sf-input>
       </label>
 
       <label class="flex flex-col gap-4">
-        <span class="typography-label-sm font-medium">Country</span>
+        <span class="font-medium typography-label-sm">Country</span>
         <sf-select formControlName="country" placeholder="Select from the list">
-          <option *ngFor="let option of countryOptions" [value]="option.value">
-            {{ option.label }}
-          </option>
+          @for (option of countryOptions; track option.value) {
+            <option [value]="option.value">
+              {{ option.label }}
+            </option>
+          }
         </sf-select>
       </label>
 
       <label class="flex flex-col gap-4">
-        <span class="typography-label-sm font-medium">Description</span>
+        <span class="font-medium typography-label-sm">Description</span>
         <textarea
           sf-textarea
           formControlName="description"
@@ -64,33 +55,33 @@
       </label>
 
       <label
-        class="flex items-start mb-4 mr-6 rounded first-of-type:mt-2 last-of-type:mb-6 cursor-pointer"
+        class="mb-4 mr-6 flex cursor-pointer items-start rounded first-of-type:mt-2 last-of-type:mb-6"
       >
         <sf-checkbox formControlName="acceptMe" />
         <span class="ml-2">
-          <span class="typography-text-base font-normal leading-6 font-body">
+          <span class="font-body font-normal leading-6 typography-text-base">
             Please accept me
           </span>
-          <span class="typography-text-xs block">This is the magical checkbox</span>
+          <span class="block typography-text-xs">This is the magical checkbox</span>
         </span>
       </label>
 
-      <h1 class="typography-headline-4 font-bold">Notifications</h1>
+      <h1 class="font-bold typography-headline-4">Notifications</h1>
 
-      <label class="flex items-center mr-6 rounded cursor-pointer">
+      <label class="mr-6 flex cursor-pointer items-center rounded">
         <sf-radio formControlName="notification" radioValue="everything" />
-        <span class="ml-2 text-base font-normal leading-6 font-body">Everything</span>
+        <span class="font-body ml-2 text-base font-normal leading-6">Everything</span>
       </label>
 
-      <label class="flex items-center mr-6 rounded cursor-pointer">
+      <label class="mr-6 flex cursor-pointer items-center rounded">
         <sf-radio formControlName="notification" radioValue="no-push" />
-        <span class="ml-2 text-base font-normal leading-6 font-body">No push notifications</span>
+        <span class="font-body ml-2 text-base font-normal leading-6">No push notifications</span>
       </label>
 
       <button class="ml-auto w-fit" sf-button [disabled]="submitForm.invalid">Submit</button>
     </form>
 
-    <div class="flex flex-col gap-4 mt-12 p-4 mx-auto w-96 border-4 border-primary-700 rounded">
+    <div class="mx-auto mt-12 flex w-96 flex-col gap-4 rounded border-4 border-primary-700 p-4">
       <span class="font-bold"> Form Value </span>
       <pre>
         <code>

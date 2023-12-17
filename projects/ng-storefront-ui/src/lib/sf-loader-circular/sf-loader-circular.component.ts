@@ -8,7 +8,7 @@ import { SfLoaderSize } from '../../types';
   imports: [CommonModule],
   template: `
     <svg
-      class="inline-block rounded-full ring-inset ring-neutral-300 text-primary-700 animate-spin-slow"
+      class="inline-block animate-spin-slow rounded-full text-primary-700 ring-inset ring-neutral-300"
       [ngClass]="sizeClasses[size]"
       viewBox="25 25 50 50"
       aria-live="polite"
@@ -17,7 +17,7 @@ import { SfLoaderSize } from '../../types';
     >
       <circle
         [ngClass]="strokeSizeClass[size]"
-        class="stroke-current stroke-2 fill-none animate-stroke-loader-circular"
+        class="animate-stroke-loader-circular fill-none stroke-current stroke-2"
         cx="50"
         cy="50"
         r="24"

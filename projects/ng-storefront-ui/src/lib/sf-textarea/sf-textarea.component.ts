@@ -20,7 +20,7 @@ export class SfTextareaComponent {
   @Input() size: keyof typeof SfTextareaSize = SfTextareaSize.base;
 
   sizeClasses = {
-    [SfTextareaSize.sm]: ' h-[56px] py-[6px] pl-4 pr-3',
+    [SfTextareaSize.sm]: 'h-[56px] py-[6px] pl-4 pr-3',
     [SfTextareaSize.base]: 'h-[64px] py-2 pl-4 pr-3',
     [SfTextareaSize.lg]: 'h-[72px], p-3 pl-4',
   };

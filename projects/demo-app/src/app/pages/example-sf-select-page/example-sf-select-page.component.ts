@@ -25,6 +25,8 @@ export class ExampleSfSelectPageComponent {
 
   selectValue = signal('');
 
+  requiredClass = "after:content-['*']";
+
   controls: Controls = [
     {
       type: 'json',

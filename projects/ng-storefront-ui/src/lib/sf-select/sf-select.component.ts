@@ -18,7 +18,7 @@ import { ControlValueAccessor, FormsModule, NG_VALUE_ACCESSOR } from '@angular/f
   template: `
     <span class="relative flex flex-col rounded-md" [ngClass]="wrapperClass">
       <select
-        class="appearance-none disabled:cursor-not-allowed cursor-pointer pl-4 pr-3.5 text-neutral-900 ring-inset focus:ring-primary-700 focus:ring-2 outline-none bg-transparent rounded-md ring-1 ring-neutral-300 hover:ring-primary-700 active:ring-2 active:ring-primary-700 disabled:bg-disabled-100 disabled:text-disabled-900 disabled:ring-disabled-200"
+        class="cursor-pointer appearance-none rounded-md bg-transparent pl-4 pr-3.5 text-neutral-900 outline-none ring-1 ring-inset ring-neutral-300 hover:ring-primary-700 focus:ring-2 focus:ring-primary-700 active:ring-2 active:ring-primary-700 disabled:cursor-not-allowed disabled:bg-disabled-100 disabled:text-disabled-900 disabled:ring-disabled-200"
         data-testid="select-input"
         [required]="required"
         [disabled]="disabled"
@@ -34,39 +34,41 @@ import { ControlValueAccessor, FormsModule, NG_VALUE_ACCESSOR } from '@angular/f
         (keydown.space)="open()"
         (ngModelChange)="handleValueChange($event)"
       >
-        <option
-          *ngIf="placeholder"
-          disabled
-          hidden
-          class="text-sm bg-neutral-300"
-          value=""
-          [ngClass]="{
-            'text-base': size === sfSelectSizeEnum.lg
-          }"
-          data-testid="select-placeholder"
-        >
-          {{ placeholder }}
-        </option>
+        @if (placeholder) {
+          <option
+            disabled
+            hidden
+            class="bg-neutral-300 text-sm"
+            value=""
+            [ngClass]="{
+              'text-base': size === sfSelectSizeEnum.lg
+            }"
+            data-testid="select-placeholder"
+          >
+            {{ placeholder }}
+          </option>
+        }
 
         <ng-content />
       </select>
 
       <ng-content select="[chevron]" />
 
-      <sf-icon-expand-more
-        *ngIf="!hasChevronContent()"
-        [svgClass]="[
-          'absolute -translate-y-1 pointer-events-none top-1/3 right-4 transition easy-in-out duration-0.5',
-          disabled ? 'text-disabled-500' : 'text-neutral-500',
-          isOpen() ? 'rotate-180' : ''
-        ]"
-      />
+      @if (!hasChevronContent()) {
+        <sf-icon-expand-more
+          [svgClass]="[
+            'absolute -translate-y-1 pointer-events-none top-1/3 right-4 transition easy-in-out duration-0.5',
+            disabled ? 'text-disabled-500' : 'text-neutral-500',
+            isOpen() ? 'rotate-180' : ''
+          ]"
+        />
+      }
     </span>
   `,
   styles: [
     `
       :host.ng-touched.ng-invalid select {
-        @apply !ring-negative-700 ring-2;
+        @apply ring-2 !ring-negative-700;
       }
     `,
   ],

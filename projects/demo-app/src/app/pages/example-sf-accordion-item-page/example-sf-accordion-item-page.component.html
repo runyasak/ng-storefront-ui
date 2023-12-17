@@ -4,7 +4,7 @@
     [ngModel]="prepareControlsData.state().ngModel"
     (ngModelChange)="handleModelChange($event)"
   >
-    <div summary class="flex justify-between p-2 bg-gray-100">
+    <div summary class="flex justify-between bg-gray-100 p-2">
       <p>Click me to see the content</p>
       <sf-icon-chevron-left
         [ngClass]="prepareControlsData.state().ngModel ? 'rotate-90' : '-rotate-90'"

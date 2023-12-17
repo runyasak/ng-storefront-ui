@@ -3,5 +3,7 @@
     <ng-content></ng-content>
   </div>
 
-  <app-controls *ngIf="!hideControls" [controls]="controls" [state]="state" />
+  @if (!hideControls) {
+    <app-controls [controls]="controls" [state]="state" />
+  }
 </div>

@@ -15,96 +15,89 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let control of controls; index as index" class="props">
-          <td [ngClass]="{ 'align-middle': control.type === 'text' }">
-            <span [id]="control.modelName">{{ control.modelName }}</span>
-          </td>
-          <td class="value">
-            <ng-container *ngIf="control.type === 'select'; else booleanControl">
-              <select
-                [ngModel]="state()[control.modelName]"
-                [attr.aria-labelledby]="control.modelName"
-                (ngModelChange)="handleControlChange($event, control.modelName)"
-              >
-                <option *ngFor="let option of control.options" [value]="option">
-                  {{ option }}
-                </option>
-              </select>
-            </ng-container>
+        @for (control of controls; track $index) {
+          <tr class="props">
+            <td [ngClass]="{ 'align-middle': control.type === 'text' }">
+              <span [id]="control.modelName">{{ control.modelName }}</span>
+            </td>
+            <td class="value">
+              <ng-container [ngSwitch]="control.type">
+                <select
+                  *ngSwitchCase="'select'"
+                  [ngModel]="state()[control.modelName]"
+                  [attr.aria-labelledby]="control.modelName"
+                  (ngModelChange)="handleControlChange($event, control.modelName)"
+                >
+                  <option *ngFor="let option of control.options" [value]="option">
+                    {{ option }}
+                  </option>
+                </select>
 
-            <ng-template #booleanControl>
-              <div *ngIf="control.type === 'boolean'; else jsonControl" class="switch-wrapper">
-                <label class="switch">
-                  <input
-                    [ngModel]="state()[control.modelName]"
-                    (ngModelChange)="handleControlChange($event, control.modelName)"
-                    type="checkbox"
-                    [attr.aria-labelledby]="control.modelName"
-                  />
-                  <span class="slider"></span>
-                </label>
-                <span class="ml-2">{{ state()[control.modelName] }}</span>
-              </div>
-            </ng-template>
+                <div *ngSwitchCase="'boolean'" class="switch-wrapper">
+                  <label class="switch">
+                    <input
+                      [ngModel]="state()[control.modelName]"
+                      (ngModelChange)="handleControlChange($event, control.modelName)"
+                      type="checkbox"
+                      [attr.aria-labelledby]="control.modelName"
+                    />
+                    <span class="slider"></span>
+                  </label>
+                  <span class="ml-2">{{ state()[control.modelName] }}</span>
+                </div>
 
-            <ng-template #jsonControl>
-              <textarea
-                *ngIf="control.type === 'json'; else rangeControl"
-                rows="10"
-                [ngModel]="stringifyValue(state()[control.modelName])"
-                [name]="control.modelName + ' ' + index"
-                [attr.aria-labelledby]="control.modelName"
-                (ngModelChange)="handleControlChange($event, control.modelName)"
-              >
-              </textarea>
-            </ng-template>
+                <textarea
+                  *ngSwitchCase="'json'"
+                  rows="10"
+                  [ngModel]="stringifyValue(state()[control.modelName])"
+                  [name]="control.modelName + ' ' + $index"
+                  [attr.aria-labelledby]="control.modelName"
+                  (ngModelChange)="handleControlChange($event, control.modelName)"
+                >
+                </textarea>
 
-            <ng-template #rangeControl>
-              <input
-                *ngIf="control.type === 'range'; else inputTextControl"
-                [ngModel]="state()[control.modelName]"
-                (ngModelChange)="handleControlChange($event, control.modelName)"
-                class="border rounded-md"
-                type="range"
-                [name]="control.modelName + '-' + index"
-                [attr.aria-labelledby]="control.modelName"
-                [attr.min]="control.rangeOption?.min"
-                [attr.max]="control.rangeOption?.max"
-                [attr.step]="control.rangeOption?.step"
-              />
-            </ng-template>
+                <input
+                  *ngSwitchCase="'range'"
+                  [ngModel]="state()[control.modelName]"
+                  (ngModelChange)="handleControlChange($event, control.modelName)"
+                  class="rounded-md border"
+                  type="range"
+                  [name]="control.modelName + '-' + $index"
+                  [attr.aria-labelledby]="control.modelName"
+                  [attr.min]="control.rangeOption?.min"
+                  [attr.max]="control.rangeOption?.max"
+                  [attr.step]="control.rangeOption?.step"
+                />
 
-            <ng-template #inputTextControl>
-              <input
-                *ngIf="control.type === 'text'; else inputControl"
-                [ngModel]="state()[control.modelName]"
-                (ngModelChange)="handleControlChange($event, control.modelName)"
-                class="border rounded-md"
-                [type]="control.type"
-                [name]="control.modelName + '-' + index"
-                [attr.aria-labelledby]="control.modelName"
-              />
-            </ng-template>
+                <input
+                  *ngSwitchCase="'text'"
+                  [ngModel]="state()[control.modelName]"
+                  (ngModelChange)="handleControlChange($event, control.modelName)"
+                  class="rounded-md border"
+                  [type]="control.type"
+                  [name]="control.modelName + '-' + $index"
+                  [attr.aria-labelledby]="control.modelName"
+                />
 
-            <ng-template #inputControl>
-              <input
-                *ngIf="control.type === 'text'; else inputControl"
-                [ngModel]="state()[control.modelName]"
-                (ngModelChange)="handleControlChange($event, control.modelName)"
-                [type]="control.type"
-                [name]="control.modelName + '-' + index"
-                [attr.aria-labelledby]="control.modelName"
-              />
-            </ng-template>
-          </td>
-          <td class="propType">
-            <span>{{ control.propType }}</span>
-          </td>
-          <td class="propDefaultValue">{{ control.propDefaultValue }}</td>
-          <td class="required">{{ control?.isRequired?.toString() }}</td>
+                <input
+                  *ngSwitchDefault
+                  [ngModel]="state()[control.modelName]"
+                  (ngModelChange)="handleControlChange($event, control.modelName)"
+                  [type]="control.type"
+                  [name]="control.modelName + '-' + $index"
+                  [attr.aria-labelledby]="control.modelName"
+                />
+              </ng-container>
+            </td>
+            <td class="propType">
+              <span>{{ control.propType }}</span>
+            </td>
+            <td class="propDefaultValue">{{ control.propDefaultValue }}</td>
+            <td class="required">{{ control?.isRequired?.toString() }}</td>
 
-          <td class="description">{{ control.description }}</td>
-        </tr>
+            <td class="description">{{ control.description }}</td>
+          </tr>
+        }
       </tbody>
     </table>
   </div>

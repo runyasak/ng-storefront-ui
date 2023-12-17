@@ -1,15 +1,16 @@
 <app-example-wrapper [controls]="controls" [state]="prepareControlsData.state">
-  <div class="flex gap-4 items-center">
-    <label
-      *ngFor="let option of prepareControlsData.state().radioOptions"
-      class="flex items-center mb-4 cursor-pointer"
-      [ngClass]="{
-        'text-disabled-900 cursor-not-allowed': radioControl.disabled
-      }"
-    >
-      <sf-radio [formControl]="radioControl" [radioValue]="option.value" [name]="option.name" />
-      <span class="ml-2 text-base font-normal leading-6 font-body">{{ option.label }}</span>
-    </label>
+  <div class="flex items-center gap-4">
+    @for (option of prepareControlsData.state().radioOptions; track $index) {
+      <label
+        class="mb-4 flex cursor-pointer items-center"
+        [ngClass]="{
+          'cursor-not-allowed text-disabled-900': radioControl.disabled
+        }"
+      >
+        <sf-radio [formControl]="radioControl" [radioValue]="option.value" [name]="option.name" />
+        <span class="font-body ml-2 text-base font-normal leading-6">{{ option.label }}</span>
+      </label>
+    }
   </div>
 
   <div class="flex gap-4">Form value: {{ radioControl.value }}</div>
