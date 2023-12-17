@@ -22,13 +22,14 @@
 </div>
 
 <ng-template #sidebarItems let-items="items">
-  <li
-    *ngFor="let item of items"
-    sf-list-item
-    [routerLink]="[item.url]"
-    [selected]="currentUrl() === item.url"
-    class="pl-8 capitalize"
-  >
-    {{ item.name }}
-  </li>
+  @for (item of items; track $index) {
+    <li
+      sf-list-item
+      [routerLink]="[item.url]"
+      [selected]="currentUrl() === item.url"
+      class="pl-8 capitalize"
+    >
+      {{ item.name }}
+    </li>
+  }
 </ng-template>

@@ -34,33 +34,35 @@ import { ControlValueAccessor, FormsModule, NG_VALUE_ACCESSOR } from '@angular/f
         (keydown.space)="open()"
         (ngModelChange)="handleValueChange($event)"
       >
-        <option
-          *ngIf="placeholder"
-          disabled
-          hidden
-          class="bg-neutral-300 text-sm"
-          value=""
-          [ngClass]="{
-            'text-base': size === sfSelectSizeEnum.lg
-          }"
-          data-testid="select-placeholder"
-        >
-          {{ placeholder }}
-        </option>
+        @if (placeholder) {
+          <option
+            disabled
+            hidden
+            class="bg-neutral-300 text-sm"
+            value=""
+            [ngClass]="{
+              'text-base': size === sfSelectSizeEnum.lg
+            }"
+            data-testid="select-placeholder"
+          >
+            {{ placeholder }}
+          </option>
+        }
 
         <ng-content />
       </select>
 
       <ng-content select="[chevron]" />
 
-      <sf-icon-expand-more
-        *ngIf="!hasChevronContent()"
-        [svgClass]="[
-          'absolute -translate-y-1 pointer-events-none top-1/3 right-4 transition easy-in-out duration-0.5',
-          disabled ? 'text-disabled-500' : 'text-neutral-500',
-          isOpen() ? 'rotate-180' : ''
-        ]"
-      />
+      @if (!hasChevronContent()) {
+        <sf-icon-expand-more
+          [svgClass]="[
+            'absolute -translate-y-1 pointer-events-none top-1/3 right-4 transition easy-in-out duration-0.5',
+            disabled ? 'text-disabled-500' : 'text-neutral-500',
+            isOpen() ? 'rotate-180' : ''
+          ]"
+        />
+      }
     </span>
   `,
   styles: [

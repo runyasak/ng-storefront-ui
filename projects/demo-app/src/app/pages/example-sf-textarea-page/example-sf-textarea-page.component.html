@@ -19,37 +19,37 @@
   </label>
   <div class="flex justify-between">
     <div>
+      @if (prepareControlsData.state().invalid && !prepareControlsData.state().disabled) {
+        <p class="mt-0.5 font-medium text-negative-700 typography-text-sm">
+          {{ prepareControlsData.state().errorText }}
+        </p>
+      }
+      @if (prepareControlsData.state().helpText) {
+        <p
+          [ngClass]="[
+            'mt-0.5 typography-text-xs',
+            prepareControlsData.state().disabled ? 'text-disabled-500' : 'text-neutral-500'
+          ]"
+        >
+          {{ prepareControlsData.state().helpText }}
+        </p>
+      }
+      @if (prepareControlsData.state().requiredText && prepareControlsData.state().required) {
+        <p class="mt-1 font-normal text-neutral-500 typography-text-sm before:content-['*']">
+          {{ prepareControlsData.state().requiredText }}
+        </p>
+      }
+    </div>
+    @if (prepareControlsData.state().characterLimit && !prepareControlsData.state().readonly) {
       <p
-        *ngIf="prepareControlsData.state().invalid && !prepareControlsData.state().disabled"
-        class="mt-0.5 font-medium text-negative-700 typography-text-sm"
-      >
-        {{ prepareControlsData.state().errorText }}
-      </p>
-      <p
-        *ngIf="prepareControlsData.state().helpText"
         [ngClass]="[
           'mt-0.5 typography-text-xs',
-          prepareControlsData.state().disabled ? 'text-disabled-500' : 'text-neutral-500'
+          prepareControlsData.state().disabled ? 'text-disabled-500' : characterLimitClass()
         ]"
       >
-        {{ prepareControlsData.state().helpText }}
+        {{ charsCount() }}
       </p>
-      <p
-        *ngIf="prepareControlsData.state().requiredText && prepareControlsData.state().required"
-        class="mt-1 font-normal text-neutral-500 typography-text-sm before:content-['*']"
-      >
-        {{ prepareControlsData.state().requiredText }}
-      </p>
-    </div>
-    <p
-      *ngIf="prepareControlsData.state().characterLimit && !prepareControlsData.state().readonly"
-      [ngClass]="[
-        'mt-0.5 typography-text-xs',
-        prepareControlsData.state().disabled ? 'text-disabled-500' : characterLimitClass()
-      ]"
-    >
-      {{ charsCount() }}
-    </p>
+    }
   </div>
 
   <div class="flex gap-4 pt-4">Form value: {{ textareaControl.value }}</div>

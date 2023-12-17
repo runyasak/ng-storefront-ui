@@ -6,12 +6,9 @@
       <label class="flex flex-col gap-4">
         <span class="font-medium typography-label-sm">Username *</span>
         <sf-input formControlName="username" [required]="true" />
-        <p
-          *ngIf="submitForm.controls['username'].touched && submitForm.controls['username'].errors"
-          class="font-medium text-negative-700 typography-text-sm"
-        >
-          The field cannot be empty
-        </p>
+        @if (submitForm.controls['username'].touched && submitForm.controls['username'].errors) {
+          <p class="font-medium text-negative-700 typography-text-sm">The field cannot be empty</p>
+        }
       </label>
 
       <label class="flex flex-col gap-4">
@@ -19,23 +16,15 @@
         <sf-input formControlName="email" [required]="true">
           <sf-icon-email prefix />
         </sf-input>
-        <p
-          *ngIf="
-            submitForm.controls['email'].touched &&
-            submitForm.controls['email'].hasError('required')
-          "
-          class="font-medium text-negative-700 typography-text-sm"
-        >
-          The field cannot be empty
-        </p>
-        <p
-          *ngIf="
-            submitForm.controls['email'].touched && submitForm.controls['email'].hasError('email')
-          "
-          class="font-medium text-negative-700 typography-text-sm"
-        >
-          Your email is invalid form
-        </p>
+        @if (submitForm.controls['email'].touched) {
+          <p class="font-medium text-negative-700 typography-text-sm">
+            @if (submitForm.controls['email'].hasError('required')) {
+              The field cannot be empty
+            } @else if (submitForm.controls['email'].hasError('email')) {
+              Your email is invalid form
+            }
+          </p>
+        }
       </label>
 
       <label class="flex flex-col gap-4">
@@ -48,9 +37,11 @@
       <label class="flex flex-col gap-4">
         <span class="font-medium typography-label-sm">Country</span>
         <sf-select formControlName="country" placeholder="Select from the list">
-          <option *ngFor="let option of countryOptions" [value]="option.value">
-            {{ option.label }}
-          </option>
+          @for (option of countryOptions; track option.value) {
+            <option [value]="option.value">
+              {{ option.label }}
+            </option>
+          }
         </sf-select>
       </label>
 

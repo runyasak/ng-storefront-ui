@@ -15,9 +15,11 @@
       [required]="prepareControlsData.state().required"
       [size]="prepareControlsData.state().size"
     >
-      <option *ngFor="let option of prepareControlsData.state().options" [value]="option.value">
-        {{ option.label }}
-      </option>
+      @for (option of prepareControlsData.state().options; track $index) {
+        <option *ngFor="let option of prepareControlsData.state().options" [value]="option.value">
+          {{ option.label }}
+        </option>
+      }
     </sf-select>
   </label>
 </app-example-wrapper>

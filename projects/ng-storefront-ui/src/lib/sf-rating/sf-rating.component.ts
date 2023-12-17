@@ -21,24 +21,29 @@ const sizeClasses = {
   standalone: true,
   imports: [CommonModule, SfIconStarComponent, SfIconStarFilledComponent, SfIconStarHalfComponent],
   template: `
-    <sf-icon-star-filled
-      *ngFor="let index of counter(filled)"
-      data-testid="rating-star-filled"
-      aria-hidden="true"
-      class="h-[1.5em] w-[1.5em]"
-    />
-    <sf-icon-star-half
-      *ngIf="partiallyFilled"
-      data-testid="rating-star-half"
-      aria-hidden="true"
-      class="h-[1.5em] w-[1.5em]"
-    />
-    <sf-icon-star
-      *ngFor="let index of counter(empty)"
-      data-testid="rating-star"
-      aria-hidden="true"
-      class="h-[1.5em] w-[1.5em] text-disabled-500"
-    />
+    @for (index of counter(filled); track index) {
+      <sf-icon-star-filled
+        data-testid="rating-star-filled"
+        aria-hidden="true"
+        class="h-[1.5em] w-[1.5em]"
+      />
+    }
+
+    @if (partiallyFilled) {
+      <sf-icon-star-half
+        data-testid="rating-star-half"
+        aria-hidden="true"
+        class="h-[1.5em] w-[1.5em]"
+      />
+    }
+
+    @for (index of counter(empty); track index) {
+      <sf-icon-star
+        data-testid="rating-star"
+        aria-hidden="true"
+        class="h-[1.5em] w-[1.5em] text-disabled-500"
+      />
+    }
   `,
   styles: [
     `

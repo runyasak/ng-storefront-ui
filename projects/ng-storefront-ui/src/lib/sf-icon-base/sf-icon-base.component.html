@@ -1,12 +1,11 @@
-<svg
-  *ngIf="content; else contentIcon"
-  xmlns="http://www.w3.org/2000/svg"
-  [attr.viewBox]="viewBox"
-  [ngClass]="['inline-block fill-current', sizeClasses, svgClassString]"
-  [innerHtml]="content"
-></svg>
-
-<ng-template #contentIcon>
+@if (content) {
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    [attr.viewBox]="viewBox"
+    [ngClass]="['inline-block fill-current', sizeClasses, svgClassString]"
+    [innerHtml]="content"
+  ></svg>
+} @else {
   <svg
     xmlns="http://www.w3.org/2000/svg"
     [attr.viewBox]="viewBox"
@@ -14,4 +13,4 @@
   >
     <ng-content></ng-content>
   </svg>
-</ng-template>
+}
