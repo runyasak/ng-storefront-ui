@@ -1,10 +1,11 @@
-import { ChangeDetectionStrategy, Component, computed, effect, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, effect, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ExampleWrapperComponent } from '../../components/example-wrapper/example-wrapper.component';
 import { SfInputComponent, SfInputSize } from 'projects/ng-storefront-ui';
 import { ControlService } from '../../services/control.service';
 import { Controls } from '../../components/controls/controls.types';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
+import { distinctUntilChanged, map, startWith } from 'rxjs';
 
 @Component({
   standalone: true,
@@ -18,12 +19,25 @@ export class ExampleSfInputPageComponent {
 
   characterLimit = signal(12);
 
-  isAboveLimit = computed(() => (this.inputControl.value || '').length > this.characterLimit());
+  inputValue$ = this.inputControl.valueChanges.pipe(
+    distinctUntilChanged(),
+    map((value) => value || '')
+  );
 
-  charsCount = computed(() => this.characterLimit() - (this.inputControl.value || '').length);
+  isAboveLimit$ = this.inputValue$.pipe(
+    map((value) => value.length > this.characterLimit()),
+    distinctUntilChanged()
+  );
 
-  characterLimitClass = computed(() =>
-    this.isAboveLimit() ? 'text-negative-700 font-medium' : 'text-neutral-500'
+  charsCount$ = this.inputValue$.pipe(
+    map((value) => this.characterLimit() - value.length),
+    distinctUntilChanged()
+  );
+
+  characterLimitClass$ = this.isAboveLimit$.pipe(
+    map((isAboveLimit) => (isAboveLimit ? 'text-negative-700 font-medium' : 'text-neutral-500')),
+    startWith('text-neutral-500'),
+    distinctUntilChanged()
   );
 
   controls: Controls = [

@@ -52,9 +52,13 @@
     @if (prepareControlsData.state().characterLimit && !prepareControlsData.state().readonly) {
       <p
         class="mt-0.5 typography-text-xs"
-        [ngClass]="[prepareControlsData.state().disabled ? 'text-disabled-500' : 'test']"
+        [ngClass]="[
+          prepareControlsData.state().disabled
+            ? 'text-disabled-500'
+            : (characterLimitClass$ | async)
+        ]"
       >
-        {{ charsCount() }}
+        {{ charsCount$ | async }}
       </p>
     }
   </div>
