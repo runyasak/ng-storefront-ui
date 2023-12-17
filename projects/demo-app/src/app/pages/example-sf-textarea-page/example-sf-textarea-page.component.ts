@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, computed, effect, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, effect, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SfTextareaComponent } from 'projects/ng-storefront-ui/src/lib/sf-textarea/sf-textarea.component';
 import { ExampleWrapperComponent } from '../../components/example-wrapper/example-wrapper.component';
@@ -6,6 +6,7 @@ import { Controls } from '../../components/controls/controls.types';
 import { SfTextareaSize } from 'projects/ng-storefront-ui';
 import { ControlService } from '../../services/control.service';
 import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { distinctUntilChanged, map, startWith } from 'rxjs';
 
 @Component({
   standalone: true,
@@ -25,12 +26,25 @@ export class ExampleSfTextareaPageComponent {
 
   characterLimit = signal(12);
 
-  isAboveLimit = computed(() => (this.textareaControl.value || '').length > this.characterLimit());
+  textareaValue$ = this.textareaControl.valueChanges.pipe(
+    distinctUntilChanged(),
+    map((value) => value || '')
+  );
 
-  charsCount = computed(() => this.characterLimit() - (this.textareaControl.value || '').length);
+  isAboveLimit$ = this.textareaValue$.pipe(
+    map((value) => value.length > this.characterLimit()),
+    distinctUntilChanged()
+  );
 
-  characterLimitClass = computed(() =>
-    this.isAboveLimit() ? 'text-negative-700 font-medium' : 'text-neutral-500'
+  charsCount$ = this.textareaValue$.pipe(
+    map((value) => this.characterLimit() - value.length),
+    distinctUntilChanged()
+  );
+
+  characterLimitClass$ = this.isAboveLimit$.pipe(
+    map((isAboveLimit) => (isAboveLimit ? 'text-negative-700 font-medium' : 'text-neutral-500')),
+    startWith('text-neutral-500'),
+    distinctUntilChanged()
   );
 
   controls: Controls = [
