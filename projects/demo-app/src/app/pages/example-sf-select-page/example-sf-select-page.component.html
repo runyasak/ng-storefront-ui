@@ -1,10 +1,10 @@
 <app-example-wrapper [controls]="controls" [state]="prepareControlsData.state">
   <label>
     <span
-      class="pb-1 text-sm font-body font-medium"
+      class="font-body pb-1 text-sm font-medium"
       [ngClass]="{
-        'after:content-[\'*\']': prepareControlsData.state().required,
-        'text-disabled-500 cursor-not-allowed': prepareControlsData.state().disabled
+        requiredClass: prepareControlsData.state().required,
+        'cursor-not-allowed text-disabled-500': prepareControlsData.state().disabled
       }"
     >
       {{ prepareControlsData.state().label }}

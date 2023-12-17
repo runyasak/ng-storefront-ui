@@ -1,7 +1,7 @@
 <app-example-wrapper [controls]="controls" [state]="prepareControlsData.state">
   <label>
     <span
-      class="typography-text-sm font-medium"
+      class="font-medium typography-text-sm"
       [ngClass]="{
         'cursor-not-allowed text-disabled-500': prepareControlsData.state().disabled
       }"
@@ -27,13 +27,13 @@
     <div>
       <p
         *ngIf="inputControl.invalid && !inputControl.disabled"
-        class="typography-text-sm text-negative-700 font-medium mt-0.5"
+        class="mt-0.5 font-medium text-negative-700 typography-text-sm"
       >
         {{ prepareControlsData.state().errorText }}
       </p>
       <p
         *ngIf="prepareControlsData.state().helpText"
-        class="typography-text-xs mt-0.5"
+        class="mt-0.5 typography-text-xs"
         [ngClass]="[
           prepareControlsData.state().disabled ? 'text-disabled-500' : 'text-neutral-500'
         ]"
@@ -42,14 +42,14 @@
       </p>
       <p
         *ngIf="prepareControlsData.state().requiredText && prepareControlsData.state().required"
-        class="mt-1 typography-text-sm font-normal text-neutral-500 before:content-['*']"
+        class="mt-1 font-normal text-neutral-500 typography-text-sm before:content-['*']"
       >
         {{ prepareControlsData.state().requiredText }}
       </p>
     </div>
     <p
       *ngIf="prepareControlsData.state().characterLimit && !prepareControlsData.state().readonly"
-      class="typography-text-xs mt-0.5"
+      class="mt-0.5 typography-text-xs"
       [ngClass]="[
         prepareControlsData.state().disabled ? 'text-disabled-500' : characterLimitClass()
       ]"
@@ -58,5 +58,5 @@
     </p>
   </div>
 
-  <div class="flex pt-4 gap-4">Form value: {{ inputControl.value }}</div>
+  <div class="flex gap-4 pt-4">Form value: {{ inputControl.value }}</div>
 </app-example-wrapper>

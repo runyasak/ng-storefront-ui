@@ -184,7 +184,7 @@ import {
   ],
   template: `
     <app-example-wrapper [hideControls]="true">
-      <div class="flex gap-4 flex-wrap">
+      <div class="flex flex-wrap gap-4">
         <sf-icon-add-shopping-cart />
         <sf-icon-add />
         <sf-icon-arrow-back />
