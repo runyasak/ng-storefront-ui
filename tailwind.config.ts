@@ -6,11 +6,7 @@ export default <Config>{
   presets: [tailwindConfig],
   content: ['./projects/**/*.{html,ts}'],
   theme: {
-    extend: {
-      fontFamily: {
-        sans: 'Red Hat Text, sans-serif',
-      },
-    },
+    extend: {},
   },
   plugins: [sfTypography],
 };

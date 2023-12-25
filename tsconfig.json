@@ -20,7 +20,9 @@
     "module": "ES2022",
     "useDefineForClassFields": false,
     "paths": {
-      "ng-storefront-ui": ["dist/ng-storefront-ui"]
+      "ng-storefront-ui": ["dist/ng-storefront-ui"],
+      "@ng-doc/generated": ["./ng-doc/docs/index.ts"],
+      "@ng-doc/generated/*": ["./ng-doc/docs/*"]
     },
     "lib": ["ES2022", "dom"],
     "allowSyntheticDefaultImports": true
