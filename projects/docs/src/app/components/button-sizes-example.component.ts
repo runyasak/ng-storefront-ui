@@ -5,7 +5,7 @@ import { SfButtonComponent } from 'ng-storefront-ui';
   selector: 'docs-button-sizes-example',
   standalone: true,
   imports: [SfButtonComponent],
-  template: ` <div class="flex flex-col items-center space-y-4 xs:block xs:space-x-4">
+  template: ` <div class="flex items-center gap-4 py-4">
     <button sf-button size="sm">Hello</button>
 
     <button sf-button>Hello</button>
