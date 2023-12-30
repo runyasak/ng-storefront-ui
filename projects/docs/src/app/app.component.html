@@ -1,5 +1,10 @@
 <ng-doc-root>
-  <ng-doc-navbar [leftContent]="leftContent" class="!bg-zinc-900" [hamburger]="true" />
+  <ng-doc-navbar
+    [leftContent]="leftContent"
+    class="!bg-zinc-900"
+    [hamburger]="true"
+    [search]="false"
+  />
   <ng-doc-sidebar />
   <router-outlet />
 </ng-doc-root>
