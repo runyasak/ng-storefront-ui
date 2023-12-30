@@ -3,6 +3,7 @@ import {
   NgDocNavbarComponent,
   NgDocSidebarComponent,
   NgDocSearchComponent,
+  NgDocThemeService,
 } from '@ng-doc/app';
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -21,4 +22,8 @@ import { RouterOutlet } from '@angular/router';
   ],
   templateUrl: './app.component.html',
 })
-export class AppComponent {}
+export class AppComponent {
+  constructor(protected readonly themeService: NgDocThemeService) {
+    this.themeService.set('custom-theme');
+  }
+}

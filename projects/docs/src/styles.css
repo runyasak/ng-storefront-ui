@@ -6,6 +6,28 @@
 @tailwind components;
 @tailwind utilities;
 
+h1.ngde,
+h2.ngde,
+h3.ngde {
+  font-weight: 600;
+}
+
+table.ngde > thead.ngde > tr > th,
+table.ngde > tbody.ngde > tr > td {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+table.ngde > thead.ngde > tr > th {
+  background-color: unset;
+  border-bottom: 1px solid var(--ng-doc-base-1);
+}
+
 .ng-doc-demo-container {
   font-family: 'Red Hat Text', sans-serif;
+}
+
+.ng-doc-root-wrapper .ng-doc-sidenav-wrapper > .ng-doc-sidenav + .ng-doc-sidenav-content {
+  padding-left: 2.5rem;
+  padding-right: 2.5rem;
 }

@@ -38,21 +38,6 @@
   --ng-doc-heading-font-family: var(--ng-doc-font-family);
 
   --ng-doc-navbar-background: var(--ng-doc-background);
-}
-
-h1.ngde,
-h2.ngde,
-h3.ngde {
-  font-weight: 600;
-}
-
-table.ngde > thead.ngde > tr > th,
-table.ngde > tbody.ngde > tr > td {
-  padding-left: 0;
-  padding-right: 0;
-}
-
-table.ngde > thead.ngde > tr > th {
-  background-color: unset;
-  border-bottom: 1px solid var(--ng-doc-base-1);
+  --ng-doc-app-max-width: unset;
+  --ng-doc-sidebar-width: 255px;
 }
