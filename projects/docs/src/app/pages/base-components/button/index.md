@@ -30,7 +30,6 @@
 | `size`     | `SfButtonSize`    | `'base'`      | `'sm'`, `'base'`, `'lg'`                 |
 | `disabled` | `boolean`         | `false`       |                                          |
 | `square`   | `boolean`         | `false`       |                                          |
-| `tag`      | `string`          | `'button'`    |                                          |
 
 ## Slots
 
