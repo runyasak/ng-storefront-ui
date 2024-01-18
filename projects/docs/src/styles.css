@@ -24,6 +24,7 @@ table.ngde > thead.ngde > tr > th {
 }
 
 .ng-doc-demo-container {
+  @apply flex-col-reverse gap-2;
   font-family: 'Red Hat Text', sans-serif;
 }
 

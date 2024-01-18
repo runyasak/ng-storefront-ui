@@ -7,7 +7,7 @@ import { SfButtonComponent } from 'ng-storefront-ui';
   standalone: true,
   imports: [SfButtonComponent, RouterLink],
   template: `
-    <div class="flex items-center gap-4 py-4">
+    <div class="flex items-center gap-4">
       <a sf-button variant="primary" href="/">Link</a>
       <a sf-button variant="primary" routerLink="/">RouterLink</a>
     </div>
